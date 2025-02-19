@@ -47,7 +47,7 @@ const {sendMailGet,sendMailPost,sendMailPut} = require('./apiControllers/forgotP
 
 app.use(express.json()); //for parsing JSON
 app.use(express.urlencoded({extended: true})); // for URL-encoded data
-app.use(cors({origin:['http://localhost:5173','http://192.168.1.3:5173']}));
+app.use(cors({origin:['https://spendingsmart.onrender.com','http://localhost:5173','http://192.168.1.3:5173']}));
   
 
 //forgetPassword
