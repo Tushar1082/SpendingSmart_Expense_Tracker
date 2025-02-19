@@ -134,7 +134,7 @@
 
 /* Different version of navbar */
 .main_navbar_body{
-    background-image: url(./userProfileBgImg.jpg);
+    background-image: url('../../../../public/userProfileBgImg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
