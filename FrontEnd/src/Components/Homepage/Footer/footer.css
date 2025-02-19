@@ -1,6 +1,6 @@
 /* Footer Styling */
 .footer {
-    background-image: url('./footerBg.jpg');
+    background-image: url('../../../../public/footerBg.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
