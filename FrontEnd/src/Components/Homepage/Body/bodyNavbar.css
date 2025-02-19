@@ -342,7 +342,11 @@
         width: 150px;
     }
 }
-
+@media (min-width:700px) and (max-width: 768px){
+    #NotificationDiv{
+        width: max-content !important;
+    }
+}
 /* Desktops (LG) */
 @media (min-width: 1025px) and (max-width: 1280px) {
     /* Styling for large screens */
