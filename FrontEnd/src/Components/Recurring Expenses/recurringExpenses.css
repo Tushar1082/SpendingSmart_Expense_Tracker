@@ -1,0 +1,56 @@
+#recExpProfDiv{
+    border: 2px solid green;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    row-gap: 15px;
+    background-color: white;
+}
+#main_recExpDiv{
+    display: flex;
+}
+.addExpenseRec span{
+    font-size: large;
+    font-weight: bold;
+}
+.addExpenseRec input{
+    font-size: large;
+}
+.addExpenseRec input::placeholder{
+    font-size: medium;
+}
+#remainderREC{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: larger;
+}
+#remainderREC label{
+    font-weight: bold;
+}
+
+@media  (max-width: 480px) {
+    #main_recExpDiv{
+        display: block;
+    }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+    #main_recExpDiv{
+        display: block;
+    }
+}
+@media (min-width: 700px) and (max-width: 768px) {
+    #main_addExpense{
+        width: 50%;
+    }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+    #main_recExpDiv{
+        display: block;
+    }
+}

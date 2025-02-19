@@ -1,0 +1,95 @@
+/* Footer Styling */
+.footer {
+    background-image: url(footerBg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: auto;
+    padding: 10px;
+    align-items: center;
+}
+.footer-brand img{
+    width: 120px;
+    background-color: white;
+    border-radius: 50%;
+}
+.footer-brand h2 {
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.footer-links, .footer-social {
+    text-align: left;
+}
+
+.footer-links ul, .footer-social ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li, .footer-social ul li {
+    margin: 5px 0;
+}
+
+.footer-links ul li a, .footer-social ul li a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.footer-links ul li a:hover, .footer-social ul li a:hover {
+    color: #f4b400;
+}
+
+.footer-bottom {
+    margin-top: 15px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* Mobile (XS) - Small phones */
+@media  (max-width: 480px) {
+    /* Adjust layout for small screens */
+    .footer-brand img{
+        width: 80px;
+    }
+    .footer-brand{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .footer{
+        padding-top: 10px;
+        font-size: smaller;
+    }
+}
+
+/* Tablets & Large Phones (SM) */
+@media (min-width: 481px) and (max-width: 768px) {
+    /* Optimize for tablets & larger phones */
+    .footer{
+        padding-top: 10px;
+        font-size: smaller;
+    }
+    .footer-brand{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .footer-brand img{
+        width: 80px;
+    }
+}
+
+/* Laptops (MD) */
+@media (min-width: 769px)  and (max-width: 1024px) {
+    /* Adjust for medium-sized screens */
+}

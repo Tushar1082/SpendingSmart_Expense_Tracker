@@ -1,0 +1,145 @@
+/* Sign-in Page Styles */
+#logoDivSignin div:nth-child(1){
+    width: 45%;
+    margin: auto;
+}
+#logoDivSignin div:nth-child(1) img{
+    width: 100%;
+}
+#logoDivSignin div:nth-child(2){
+    width: 55%;
+    margin: auto;
+}
+#logoDivSignin div:nth-child(2) img{
+    width: 100%;
+}
+#signin_main {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f0f4f8;
+    font-family: 'Arial', sans-serif;
+}
+
+#signinDiv {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+#signin_profileImg{
+    /* width: 40%;
+    margin: auto; */
+    width: 10rem;
+    height: 10rem;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+#signin_profileImg img {
+    /* width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px; */
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+#signin_detail input[type="text"], 
+#signin_detail input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#signin_detail input[type="text"]:focus, 
+#signin_detail input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+#signin_submit button{
+    margin-top: 5px;
+}
+#signin_submit button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#signin_submit button:hover {
+    background: #0056b3;
+}
+
+#signin_submit button:active {
+    background: #004080;
+}
+
+#signin_Links{
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#signin_Links:hover {
+    text-decoration: underline;
+}
+
+#signin_Links:active {
+    color: #0056b3;
+}
+
+/* p {
+    margin: 0;
+}
+
+p a {
+    font-weight: bold;
+} */
+
+@media (max-width: 480px) {
+    #signin_main{
+        display: flex;
+        flex-direction: column;
+        justify-content: unset;
+    }
+    #signinDiv {
+        width: 60%;
+        margin-top: 1rem;
+    }
+    /* #logoDivSignin{
+        margin: 2rem;
+    } */
+    /* #signin_profileImg{
+        width: 50%;
+    } */
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    #signin_main{
+        display: flex;
+        flex-direction: column;
+        justify-content: unset;
+    }
+    #signinDiv {
+        width: 60%;
+        margin-top: 1rem;
+    }
+    /* #signin_profileImg{
+        width: 50%;
+    } */
+}

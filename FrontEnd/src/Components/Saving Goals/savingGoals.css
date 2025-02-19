@@ -1,0 +1,292 @@
+#mainSavingGoals{
+    display: grid;
+}
+#oldSavGoalProf{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+    max-height: 100vh;
+    overflow: auto;
+    box-shadow: 0px 0px 5px 3px lightgrey;
+    width: fit-content;
+    padding: 10px;
+}
+
+#addTrans_SG{
+    position: fixed;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 3;
+}
+#addTrans_SG input{
+    border: none;
+    outline: none;
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: medium;
+}
+#addTrans_SG input[type='date']{
+    font-size: medium;
+}
+#addTrans_SG input::placeholder{
+    font-size: smaller;
+}
+#addTrans_SG span{
+    margin-right: 10px;
+    font-size: large;
+    font-weight: bold;
+}
+#addTrans_SG textarea{
+    border: none;
+    outline: none;
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: large;
+    resize: none;
+}
+#addTrans_SG textarea::placeholder{
+    font-size: smaller;
+}
+#prioritySpan{
+    padding: 5px 10px;
+    font-size: medium;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+/* #adjstmentDiv_SG{
+    position: fixed;
+    border: 2px solid grey;
+    padding: 10px;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+}
+#adjstmentDiv_SG input{
+
+} */
+
+#adjBtn{
+    border: none;
+    background-color: #4285F4;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: large;
+    cursor: pointer;
+}
+#sGExpProfDiv{
+    width: fit-content;
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    row-gap: 5px;
+    background-color: white;
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    padding: 10px 20px;
+    z-index: 3;
+}
+#sGExpProfDiv input:not([type="radio"]):not([type="checkbox"]){
+    border: none;
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: medium;
+    outline: none;
+}
+#sGExpProfDiv input::placeholder{
+    font-size: smaller;
+}
+#sGExpProfDiv input[type="radio"]{
+    margin-right:10px;
+}
+#contributionDiv{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+#sGExpProfDiv textarea{
+    resize: none;
+    border: none;
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    padding: 5px 15px;
+    border-radius: 10px;
+    font-size: larger;
+    outline: none;
+    width: 70%;
+}
+#sGExpProfDiv span,#sGExpProfDiv label{
+    margin-right: 10px;
+    font-weight: bold;
+    /* font-size: large; */
+}
+#sGExpProfDiv select{
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    outline: none;
+    margin-top: 5px;
+}
+#SubmitBtn_SG button{
+    border: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: small;
+    cursor: pointer;
+    padding: 10px;
+}
+#SubmitBtn_SG button:nth-child(2){
+    background-color: rgb(173, 6, 36);
+    margin-left: 20px;
+}
+#createNewSavGoalProfBtn{
+    text-align: center;
+    margin-bottom: 5rem;
+}
+#createNewSavGoalProfBtn button{
+    border: none;
+    outline: none;
+    background-color: #F08080;
+    color: white;
+    padding: 10px;
+    font-size: smaller;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.5s ease-in;
+}
+#createNewSavGoalProfBtn button:hover{
+    background-color: #C0C0C0;
+    transform: scale(1.05);
+}
+@media  (max-width: 480px) {
+    #mainSavingGoals{
+        display: block;
+    }
+    #oldSavGoalProf{
+        position: fixed;
+        left: -100%;
+        z-index: 10;
+        padding: unset;
+        flex-direction: row;
+        max-height: unset;
+        overflow: unset;
+        box-shadow: unset;
+        transition: left 0.5s ease-in-out;
+    }
+    #priorityDiv{
+        /* margin-left: -5px; */
+        margin-bottom: 5px;
+    }
+    #priorityDiv span{
+        font-size: small;
+    }
+    #expenseDiv{
+        margin: 0px 30px !important;
+    }
+    #expenseDiv th, #expenseDiv td{
+        font-size: small;
+    }
+    #sGExpProfDiv{
+        max-height: 80vh;
+        overflow-y: scroll;
+        width: 70%;
+    }
+    #SubmitBtn_SG button{
+        font-size: large;
+    }
+    #addTrans_SG{
+        width: 70%;
+    }
+    #addTrans_SG input{
+        width: 90%;
+    }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+    #mainSavingGoals{
+        display: block;
+    }
+    #oldSavGoalProf{
+        position: fixed;
+        left: -100%;
+        z-index: 10;
+        padding: unset;
+        flex-direction: row;
+        max-height: unset;
+        overflow: unset;
+        box-shadow: unset;
+        transition: left 0.5s ease-in-out;
+    }
+    #priorityDiv{
+        margin-left: -5px;
+        margin-bottom: 10px;
+    }
+    #priorityDiv span{
+        font-size: small;
+    }
+    #expenseDiv{
+        margin: 0px 30px !important;
+    }
+    #sGExpProfDiv{
+        width: 70%;
+    }
+    #SubmitBtn_SG button{
+        font-size: large;
+    }
+    #addTrans_SG{
+        width: 70%;
+    }
+}
+@media (min-width: 700px) and (max-width: 768px) {
+    #addTrans_SG{
+        width: 50%;
+    }
+    #sGExpProfDiv{
+        width: 50%;
+    }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+    #mainSavingGoals{
+        display: block;
+    }
+    #oldSavGoalProf{
+        position: fixed;
+        left: -100%;
+        z-index: 10;
+        padding: unset;
+        flex-direction: row;
+        max-height: unset;
+        overflow: unset;
+        box-shadow: unset;
+        transition: left 0.5s ease-in-out;
+    }
+    #priorityDiv{
+        margin-left: -5px;
+        margin-bottom: 10px;
+    }
+    #expenseDiv{
+        margin: 0px 30px !important;
+    }
+    #SubmitBtn_SG button{
+        font-size: large;
+    }
+}

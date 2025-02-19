@@ -1,0 +1,349 @@
+#mainBodyNavbar{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-bottom: 2px solid lightgrey;
+    position: sticky;
+    top: 0px;
+    background-color: white;
+    z-index: 2;
+    margin-left: 2px;
+    animation: topToDown 1s ease-in;
+}
+@keyframes topToDown {
+    0%{
+        transform: translateY(-150%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}
+#logoDiv{
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    padding-top: 5px;
+}
+#logoDiv div:nth-child(1){
+    width: 80px;
+}
+#logoDiv div:nth-child(1) img{
+    width: 100%;
+}
+#logoDiv div:nth-child(2){
+    width: 200px;
+}
+#logoDiv div:nth-child(2) img{
+    width: 100%;
+}
+#bodyNavbar{
+    display: flex;
+    gap: 40px;
+    padding: 10px 20px;
+    flex: 1;
+    justify-content: center;
+}
+#mainBodyNavbar div a{
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+#mainBodyNavbar div a img{
+    width: 40px;
+}
+#mainBodyNavbar div a span{
+    font-size: larger;
+}
+
+#notifiIconDiv{
+    position: relative;
+}
+#notifiIconDiv span{
+    background-color: red;
+    padding: 3px;
+    position: absolute;
+    border-radius: 50%;
+    top: 2px;
+    right: 5px;
+}
+#NotificationDiv{
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 1;
+    display: flex;
+    animation: rightToLeftND 0.5s ease-in;
+}
+@keyframes rightToLeftND {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+@keyframes leftToRightND {
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
+#hideNotifDiv{
+    display: flex;
+    align-items: center;
+}
+#hideNotifDiv button{
+    background-color: white;
+    outline: none;
+    border: 1px solid grey;
+    padding: 60px 5px;
+    border-radius: 15px 0px 0px 15px;
+    border-right: none;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+#hideNotifDiv button:hover{
+    background-color: rgb(238, 237, 237);
+}
+#emptyNotifDiv{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 3px 2px lightgrey;
+}
+#emptyNotifDiv img{
+    width: 100%;
+}
+#mainFriendReqDiv{
+    background-color: white;
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    padding: 20px;
+    max-height: 95vh;
+    overflow: auto;
+}
+#notificationCard{
+    margin-top: 10px;
+    border: 2px solid lightgrey;
+    padding: 10px;
+    border-radius: 10px;
+    width: max-content;
+}
+#notificationCard p{
+    font-size: small;
+    margin-bottom: 5px;
+    color: darkblue;
+    font-weight: bold;
+}
+#messageDiv{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: large;
+}
+#messageDiv img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#profImgBN{
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+#hamMenuDiv_BNAV{
+    display: none;
+}
+#hamMenuDiv_BNAV{
+   margin-left: 3rem; 
+   cursor: pointer;
+}
+#hamMenuDiv_BNAV img{
+    width: 50px;
+}
+
+/* Mobile (XS) - Small phones */
+@media (max-width: 480px) {
+    /* Adjust layout for small screens */
+    #hamMenuDiv_BNAV{
+        display: block;
+    }
+    #hamMenuDiv_BNAV{
+        margin-left: 1rem;
+    }
+    #hamMenuDiv_BNAV img{
+        width: 35px;
+    }
+    #logoDiv{
+        margin-left: 10px;
+    }
+    #logoDiv div:nth-child(1){
+        width: 60px;
+    }
+    #logoDiv div:nth-child(2){
+        display: none;
+    }
+    #bodyNavbar{
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 0px;
+        padding-left: 1.3rem;
+        padding-right: 10px;
+    }
+    #homeNavigation_BN{
+        display: none !important;
+    }
+    #mainBodyNavbar div a{
+        flex-direction: column;
+        gap: 5px;
+    }
+    #mainBodyNavbar div a img{
+        height: 25px;
+        width: 25px;
+    }
+    #bodyNavbar a:nth-child(2){
+        gap: 0px;
+    }
+    #bodyNavbar a:nth-child(2) img{
+        height: 32px;
+        width: 32px;
+    }
+    #mainBodyNavbar div a span{
+        font-size: medium;
+    }
+    #mainBodyNavbar div a:last-child{
+        gap: 0px;
+    }
+    #cardDivImg_Body{
+        width: 60%;
+    }
+    #cardDivContent_Body{
+        font-size: medium;
+    }
+    #todayInsightsMain{
+        /* display: none !important; */
+        flex-wrap: wrap;
+    }
+    #NotificationDiv{
+        width: 90% !important;
+    }
+    #mainFriendReqDiv{
+        padding: 10px;
+        width: 100%;
+        max-height: unset;
+    }
+    #notificationCard{
+        padding: 5px;
+        width: 90%;
+    }
+    #messageDiv{
+        font-size: small;
+    }
+    #messageDiv img{
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Tablets & Large Phones (SM) */
+@media (min-width: 481px) and (max-width: 768px) {
+    /* Optimize for tablets & larger phones */
+    #hamMenuDiv_BNAV{
+        display: block;
+    }
+    #hamMenuDiv_BNAV{
+        margin-left: 1.5rem;
+    }
+    #hamMenuDiv_BNAV img{
+        width: 2.4rem;
+    }
+    #logoDiv{
+        flex-direction: column;
+        margin-left: 1rem;
+    }
+    #logoDiv div:nth-child(1){
+        width: 40px;
+    }
+    #logoDiv div:nth-child(2){
+        width: 70px;
+    }
+    #bodyNavbar{
+        gap: 10px;
+        padding: 0px 10px;
+        justify-content: space-evenly;
+    }
+    #mainBodyNavbar div a{
+        gap: 5px;
+    }
+    #mainBodyNavbar div a img{
+        width: 1.5rem;
+    }
+    #profImgBN{
+        width: 2.5rem !important;
+        height: 2.5rem;
+    }
+    #mainBodyNavbar div a span{
+        font-size: smaller;
+    }
+    #NotificationDiv{
+        width: 80% !important;
+    }
+    #messageDiv{
+        font-size: small;
+    }
+    .mainReq{
+        width: 90%;
+    }
+    .ReqestDiv_body{
+        gap: 10px;
+    }
+    .friendReqBtnDiv{
+        gap: 10px;
+    }
+    .friendReqBtnDiv{
+        font-size: small;
+    }
+    #headerMain_Body img{
+        width: 40px;
+        height: unset;
+    }
+    #friendReqPopMenuUserName{
+        font-size: medium;
+    }
+    #mainFriendReqDiv{
+        width: 100%;
+    }
+}
+
+/* Laptops (MD) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Adjust for medium-sized screens */
+    #hamMenuDiv_BNAV{
+        display: block;
+        margin-left: 2rem;
+    }
+    #logoDiv{
+        margin-left: 20px;
+        flex-direction: column;
+    }
+    #logoDiv div:nth-child(1){
+        width: 70px;
+    }
+    #logoDiv div:nth-child(2){
+        width: 150px;
+    }
+}
+
+/* Desktops (LG) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+    /* Styling for large screens */
+}

@@ -1,0 +1,431 @@
+#createNewGroupDiv_G {
+    position: fixed;
+    box-shadow: 0px 0px 3px 1px grey;
+    padding: 10px 20px;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    display: grid;
+    gap: 10px;
+    z-index: 100;
+    max-height: 80vh;
+    overflow: auto;
+}
+#createNewGroupDiv_G input{
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 15px;
+    outline: none;
+    margin-top: 10px;
+}
+#createNewGroupDiv_G span{
+    margin-right:10px;
+    font-weight: bold;
+    font-size: large;
+}
+#createNewGroupDiv_G textarea{
+    resize: none;
+    border: none;
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+    outline: none;
+    font-size: large;
+    width: 90%;
+}
+#selectGMDiv{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-height: 40vh;
+    overflow: auto;
+    /* align-items: center; */
+    width: fit-content;
+}
+#selectGM{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid lightgrey;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+#selectGM img:nth-child(1){
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+#selectGM img:nth-child(3){
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+#selectGM span{
+    margin: 0px;
+    flex: 1;
+    text-align: left;
+}
+
+#createNewGroupDiv_G select{
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 15px;
+    outline: none;
+    width: max-content;
+}
+#createGroupProfBtn{
+    margin: auto;
+}
+#createGroupProfBtn button{
+    border: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 5px 20px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: large;
+    cursor: pointer;
+}
+
+#mainGroupMember{
+    display: flex;
+    flex-direction: column;
+    width: 35vh;
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    z-index: 22;
+    position: sticky;
+    top: 0px;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: auto;
+    transition: top 0.5s ease-in;
+}
+#headingGM{
+    text-align: center;
+    padding: 22px 10px;
+    /* border-bottom: 1px solid lightgrey; */
+    /* box-shadow: 0px 0px 3px 2px lightgrey; */
+}
+#MemberListDiv{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 15px;
+    padding: 15px;
+    background-color: white;
+}
+#memberDiv{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+#memberImg{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+#addMemberDiv{
+    position: relative;
+    text-align: center;
+    background-color: white;
+}
+#addMemberDiv button{
+    border: none;
+    outline: none;
+    background-color: #000000e6;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+#availableMemberDiv{
+    padding: 5px 10px;
+    position: absolute;
+    background-color: white;
+    top: 60%;
+    left: 30%;
+    border-radius: 10px;
+    border: 1px solid darkgrey;
+    max-height: 250px;
+    overflow: auto;
+    min-width: 18vh;
+    display: grid;
+    gap: 10px;
+    animation: topToDownMD 0.7s ease-in;
+}
+
+@keyframes topToDownMD{
+    0%{
+        top: -100%;
+        z-index: -1;
+    }
+    100%{
+        top: 60%;
+        z-index: 1;
+    }
+}
+
+#newMemberDiv{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px;
+    color: black;
+    transition: background-color 0.5s ease-out;
+    border-radius: 30px;
+}
+#newMemberDiv:hover{
+    background-color: #F08080;
+    color: white;
+}
+#newMemberDiv img{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+#leaveBtn{
+    text-align: center;
+    margin: 10px 0px;
+    margin-bottom: 2rem;
+}
+#leaveBtn button{
+    border: none;
+    outline: none;
+    background-color: rgb(173, 6, 36);
+    color: white;
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-size: medium;
+    cursor: pointer;
+}
+#leaveBtn button:hover{
+    background-color: rgb(131, 5, 28);
+}
+#adminLeaveDiv{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 40%;
+    color: white;
+    box-shadow: -2px 3px 5px 0px lightgrey;
+}
+#adminLeaveMsg{
+    padding: 10px;
+    background-color: red;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+#adminLeaveBtnDiv{
+    padding: 10px;
+    text-align: center;
+}
+#adminLeaveBtnDiv button:nth-child(1){
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+#adminLeaveBtnDiv button:nth-child(2){
+    margin-left: 10px;
+    background-color: white;
+    color: black;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border: 1px solid;
+    cursor: pointer;
+}
+#makeAdminDiv{
+    position: absolute;
+    padding: 15px 10px;
+    border: 1px solid grey;
+    background-color: white;
+    border-radius: 10px;
+    left: 60%;
+    top: 60%;
+    transform: translate(-60%, 0px);
+    z-index: 1;
+}
+#makeAdminDiv button{
+    background-color: #F08080;
+    color: white;
+    border: none;
+    white-space: nowrap;
+    font-size: medium;
+    border-radius: 30px;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#groupMemberList_G{
+    flex: 1;
+    display: flex
+    ;
+        flex-direction: column;
+}
+#adminTag{
+    color: green;
+    font-size: smaller;
+    font-weight: bold;
+}
+#expenseBtns{
+    display: flex;
+    /* flex-direction: column; */
+    gap: 10px;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+#expenseBtns button{
+    border-radius: 30px;
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    padding: 10px 30px;
+    font-size: larger;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+#mainVisualCharts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media (max-width: 480px) {
+    #mainGroupMember{
+        position: fixed;
+        top: 76%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 60vh;
+        /* overflow-y: auto; */
+        background-color: white;
+        border-radius: 20px 20px 0px 0px;
+        box-shadow: 0px 0px 6px -1px;
+    }
+    #headingGM{
+        background-color: black;
+        color: white;
+    }
+    #groupMemberList_G{
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+    #memberImg{
+        width: 60px;
+        height: 60px;
+    }
+    #leaveBtn{
+        margin-bottom: 4rem;
+    }
+    #leaveBtn button{
+        font-size: x-large;
+    }
+    #adminTag{
+        font-size: medium;
+    }
+    #memberDiv p{
+        font-size: larger;
+    }
+    .showHideGroupDiv{
+        top: 123% !important;
+    }
+    #createNewGroupDiv_G{
+        width: 80%;
+    }
+    #expenseBtns{
+        flex-direction: column;
+        margin-bottom: 5rem;
+    }
+    #createGroupProfBtn button{
+        font-size: larger;
+    }
+    #submitBtnDiv_GE button{
+        font-size: larger;
+    }
+    #adminLeaveDiv{
+        width: 80%;
+    }
+}
+@media (min-width:481px) and (max-width: 768px) {
+    #mainGroupMember{
+        position: fixed;
+        top: 76%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 60vh;
+        /* overflow-y: auto; */
+        background-color: white;
+        border-radius: 20px 20px 0px 0px;
+        box-shadow: 0px 0px 6px -1px;
+    }
+    #headingGM{
+        background-color: black;
+        color: white;
+    }
+    #groupMemberList_G{
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+    #memberImg{
+        width: 70px;
+        height: 70px;
+    }
+    #adminTag{
+        font-size: medium;
+    }
+    #memberDiv p{
+        font-size: larger;
+    }
+    #leaveBtn{
+        margin-bottom: 4rem;
+    }
+    #leaveBtn button{
+        margin-bottom: 2rem;
+        font-size: x-large;
+    }
+    .showHideGroupDiv{
+        top: 124% !important;
+    }
+    #createNewGroupDiv_G{
+        width: 80%;
+    }
+    #expenseBtns{
+        margin-bottom: 4rem;
+    }
+    #createGroupProfBtn button{
+        font-size: x-large;
+    }
+    #submitBtnDiv_GE button{
+        font-size: x-large;
+    }
+    #adminLeaveDiv{
+        width: 80%;
+    }
+}

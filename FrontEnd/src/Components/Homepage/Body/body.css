@@ -1,0 +1,463 @@
+#mainBodyDiv{
+    display: inline-block;
+    overflow-x: hidden;
+    width: 100%;
+}
+#sliderDiv{
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 20px;
+    align-items: center;
+}
+.animate{
+    animation: slideIn 1s ease-out;
+}
+@keyframes slideIn {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }   
+}
+
+#sliderDiv div:nth-child(1){
+    width: 50%;
+    margin: 20px;
+    overflow: hidden;
+    border-radius: 30px 0px 30px 0px;
+}
+#sliderDiv div:nth-child(1) img{
+    width: 100%;
+}
+#sliderDiv div:nth-child(2){
+    padding: 30px;
+    flex: 1;
+}
+#sliderDiv div:nth-child(2) p{
+    width: 400px;
+    margin-top: 10px;
+    font-size: larger;
+}
+#sliderDiv div:nth-child(2) button{
+    margin-top: 10px;
+    padding: 15px 30px;
+    font-weight: bold;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    font-size: large;
+}
+#servicesMain{
+    padding: 20px;
+    animation: rightToLeft 1s ease-in ;
+}
+@keyframes rightToLeft{
+    0%{
+        position: relative;
+        right: -100%;
+    }
+    100%{
+        position: relative;
+        right: 0%;
+    }
+}
+@keyframes topToDown{
+    0%{
+        transform: translateY(-200%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}
+
+#servicesHeading h1{
+    margin: 2rem 0rem;
+    font-size: xxx-large;
+    text-align: center;
+}
+
+#mainServices{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+#cardDiv_Body{
+    padding: 10px;
+    border: 3px solid lightgrey;
+    border-radius: 30px 0px 30px 0px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    flex-direction: column;
+    width: 30%;
+    justify-content: space-around;
+}
+
+#cardDivImg_Body img{
+    width: 100%;
+    border-radius: 30px 0px 0px 0px;
+}
+#cardDivContent_Body{
+    font-size: larger;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: fit-content;
+}
+#cardDivContent_Body p{
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+}
+#cardBtn_Body{
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    margin: auto;
+    font-weight: bold;
+    font-size: larger;
+    padding: 10px 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/* Main Container */
+#mainReq {
+    border-radius: 12px;
+    background: linear-gradient(135deg, #1e1e1e, #333);
+    padding: 20px;
+    display: inline-block;
+    margin: 0px;
+    cursor: pointer;
+    max-height: fit-content;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#mainReq:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+}
+#todayInsightsMain #mainReq:nth-child(1){
+    flex-basis: 20rem;
+}
+
+#todayInsightsMain #mainReq:nth-child(2){
+    flex-basis: 25rem;
+}
+
+#todayInsightsMain #mainReq:nth-child(3){
+    flex-basis: 30rem;
+}
+
+#ReqestDiv_body{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+/* Header Section */
+#headerMain_Body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #4CAF50;
+    margin-bottom: 12px;
+}
+
+#headerMain_Body p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+#headerMain_Body img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+#headerMain_Body img:hover {
+    transform: translateX(5px);
+}
+
+/* Transactions Container */
+#lastTransCon {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Individual Transaction */
+#lastTransElm {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background 0.2s ease-in-out;
+}
+
+#lastTransElm:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Transaction Details */
+#lastTransElm div {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 0.95rem;
+    padding: 4px 0;
+}
+
+#lastTransElm span:first-child {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+/* Empty State */
+#mainReq div p {
+    color: #ccc;
+    text-align: center;
+    font-style: italic;
+}
+
+
+
+/* class work when friend request dialog box pop up */
+.mainReq{
+    position: fixed;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0px;
+    width: 60%;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 80vh;
+    max-height: 80vh;
+    overflow-y: auto;
+    display: inline-block;
+    margin: 10px; 
+}
+.headerMain_Body{
+    background-color: black;
+    padding: 15px 10px;
+}
+.ReqestDiv_body{
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    /* justify-content: center; */
+    gap:50px;
+}
+.friendReqBtnDiv{
+    display: flex;
+    gap:30px;
+    flex: 1;
+    justify-content: flex-end;
+}
+.friendReqBtnDiv button:nth-child(1){
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: larger;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+.friendReqBtnDiv button:nth-child(2){
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: larger;
+    outline: none;
+    border: none;
+    background-color: rgb(173, 6, 36);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+#todayInsightsMain{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    gap: 10px;
+}
+#cardDivImg_Body{
+    width: 70%;
+}
+#friendReqPopMenuProfImg{
+    display: flex; 
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+#friendReqPopMenuUserName{
+    color: white;
+    font-size: x-large;
+}
+#todayInsightsDivHead{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 2px solid green;
+}
+#todayInsightsDivHead img{
+    width: 40px;
+    background-color: #8080807d;
+    border-radius: 50%;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+#FriendReqHeading_body{
+    background-color: black;
+    padding: 15px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#FriendReqHeading_body img{
+    width: 40px;
+    cursor: pointer;
+}
+
+/* Mobile (XS) - Small phones */
+@media (max-width: 480px) {
+    /* Adjust layout for small screens */
+    #sliderDiv{
+        flex-direction: column;
+    }
+    #sliderDiv div:nth-child(1){
+        width: unset;
+    }
+    #sliderDiv div:nth-child(2) p{
+        width: unset;
+    }
+    #mainServices{
+        flex-direction: column;
+        flex-wrap: unset;
+    }
+    #cardDiv_Body{
+        width: unset;
+        padding-bottom: 2rem;
+    }
+    #cardBtn_Body{
+        font-size: medium;
+    }
+    #friendReqSNo_body{
+        display: none;
+    }
+    .mainReq{
+        width: 90%;
+    }
+    .ReqestDiv_body {
+        position: relative; /* Needed for absolute positioning of ::before */
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.6);
+        gap: 10px;
+        margin: 1.5rem 1rem;
+        overflow: hidden; /* Ensures blur effect stays inside the div */
+    }
+    
+    .ReqestDiv_body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.6); /* Same as parent's background */
+        filter: blur(50px); /* Increased for better visibility */
+        z-index: -1; /* Keeps it behind the content */
+        border-radius: 20px; /* Match parent border-radius */
+    }
+    #headerMain_Body img{
+        width: 40px;
+        height: unset;
+    }
+    #friendReqPopMenuProfImg{
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        height: unset;
+        width: 6rem;
+        margin-bottom: 1rem;
+    }
+    #friendReqPopMenuUserName{
+        color: black;
+        font-size: large;
+    }
+    #cardDivImg_Body img{
+        border-radius: 30px 0px 30px 0px;
+    }
+}
+
+/* Tablets & Large Phones (SM) */
+@media (min-width:481px) and (max-width: 768px) {
+    /* Optimize for tablets & larger phones */
+    /* #todayInsightsMain{
+        flex-direction: column;
+    } */
+    /* #mainReq{
+        width: unset;
+        max-width: unset;
+    } */
+    #sliderDiv div:nth-child(2){
+        font-size: x-small;
+    }
+    #sliderDiv div:nth-child(2) p{
+        width: unset;
+    }
+    #sliderDiv div:nth-child(2) button{
+        font-size: small;
+        padding: 10px 30px;  
+    }
+    #cardDiv_Body{
+        width: fit-content;
+        justify-content: unset;
+        flex-direction: row;
+    }
+    #cardDivImg_Body{
+        width: 50%;
+    }
+    #cardDivContent_Body{
+        padding: 10px;
+        padding-left: 2rem;
+        font-size: small;
+    }
+    #cardDivContent_Body ul{
+        padding: 10px;
+        padding-left: 0px !important;
+    }
+    #cardDivImg_Body img{
+        border-radius: 30px 0px 30px 0px;
+    }
+}
+
+/* Laptops (MD) */
+@media (min-width:769px) and (max-width: 1024px) {
+    /* Adjust for medium-sized screens */
+    #cardDiv_Body{
+        width: 40%;
+        padding: 30px 10px;
+    }
+}

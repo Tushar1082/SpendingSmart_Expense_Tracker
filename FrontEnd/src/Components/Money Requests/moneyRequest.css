@@ -1,0 +1,329 @@
+/* #mainMonReq{
+} */
+#moneyReqMain{
+    height: 100vh;
+    background-image: url(./userProfileBgImg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    /* padding: 10px; */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    position: relative;
+}
+#moneyReqDiv{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 40px;
+    border-radius: 20px;
+    width: max-content;
+    height: 80vh;
+    max-height: 80vh;
+    overflow: auto;
+    /* margin: 20px 0px; */
+    margin: auto;
+}
+#paymentBtn_MR{
+    flex: 1;
+    text-align: end;
+}
+#paymentBtn_MR button{
+    padding: 8px 30px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: medium;
+    font-weight: bold;
+    transition: transform 0.3s ease-in;
+}
+#paymentBtn_MR button:hover{
+    transform: scale(1.1);
+}
+
+#paymentBoxDiv_MR{
+    background-color: white;
+    padding: 20px 25px;
+    border-radius: 20px;
+    position: fixed;
+    height: 80vh;
+    overflow: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#submitPaymentBtn{
+    width: max-content;
+    margin: auto;
+}
+#submitPaymentBtn button{
+    background-color: #228cfa;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 30px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: medium;
+    transition: transform 0.3s ease-in;
+}
+#submitPaymentBtn button:hover{
+    transform: scale(1.1);
+}
+.payment-summary{
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+#mainTransactionResult{
+    background-color: white;
+    width: 40vh;
+    border-radius: 15px;
+    overflow: hidden;
+    position: fixed;
+    top: 50%;
+    left: 60%;
+    transform: translate(-60%, -50%);
+}
+#transResStatus{
+    background-color: green;
+    padding: 10px;
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+}
+#transResImg{
+    width: 60px;
+    background-color: black;
+    border-radius: 50%;
+    display: flex;
+    padding: 10px;
+}
+#transResImg img{
+    width: 100%;
+}
+#transResDetails{
+    padding: 10px 20px;
+    font-size: large;
+    display: grid;
+    gap: 10px;
+}
+#transResDetails div{
+    display: flex;
+    justify-content: space-between;
+}
+#transResDetails div span:nth-child(1){
+    font-weight: bold;
+}
+#transResBtn{
+    text-align: center;
+    margin: 10px;
+}
+#transResBtn button{
+    background-color: white;
+    border: none;
+    box-shadow: 0px 0px 4px 0px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: medium;
+    padding: 5px 25px;
+    cursor: pointer;
+}
+
+
+
+
+#mainPaymentStatus{
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+    left: 0%;
+    right: 0%;
+    border-radius: 60% 60% 0% 0%;
+    padding: 20px;
+    animation: bottomToUp 1s ease-in-out;
+    z-index: 1;
+}
+@keyframes bottomToUp {
+    0%{
+        bottom: -100%;
+    }
+    100%{
+        bottom: 0%;
+    }
+}
+
+@keyframes upToBottom {
+    0%{
+        bottom: 0%;
+    }
+    100%{
+        bottom: -100%;
+    }
+}
+#crossDivMR{
+    position: absolute;
+    right: 30px;
+    top: -20px;
+    cursor: pointer;
+}
+#statusImgMR{
+    width: 15%;
+    margin: auto;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+#statusImgMR img{
+    width: 100%;
+    border-radius: 50%;
+}
+#paymentDetailsMR{
+    width: 50%;
+    margin: auto;
+    display: grid;
+    gap: 10px;
+    font-size: larger;
+    margin-bottom: 1rem;
+}
+#paymentD{
+    display: flex;
+    justify-content: space-between;
+}
+#paymentD span:first-child{
+    font-weight: bold;
+}
+#requestorProfImg{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+}
+#emptyMoneyReqDiv div:nth-child(1){
+    margin: auto;
+    width: 70%;
+}
+#emptyMoneyReqDiv div:nth-child(1) img{
+    width: 100%;
+}
+#emptyMoneyReqDiv div:nth-child(2){
+    color: white;
+    text-align: center;
+}
+#moneyReqBodyNav{
+    display: none;
+}
+
+@media  (max-width: 480px) {
+    #moneyReqDiv{
+        padding: 20px;
+        width: fit-content;
+        margin: auto 2rem;
+    }
+    #ReqestDiv_body{
+        font-size: small !important;
+        display: flex;
+        flex-direction: column;
+        background-color: #808080ad;
+        padding: 1rem;
+        border-radius: 10px;
+        gap: 10px;
+    }
+    /* #requestorProfImg{
+        width: 80px;
+        height: 40px;
+    } */
+    #mainPaymentStatus{
+        border-radius: 20px 20px 0px 0px;
+        margin: 0px 10px;
+    }
+    #crossDivMR{
+        top: 10px;
+        right: 10px;
+    }
+    #statusImgMR{
+        width: 75%;
+    }
+    #paymentDetailsMR{
+        width: unset;
+        font-size: unset;
+    }
+    #moneyReqBodyNav{
+        display: block;
+        margin: 1rem;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    .mainBodyNavbar{
+        background-color: #808080a3 !important;
+        border-bottom: unset !important;
+    }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+    #moneyReqDiv{
+        padding: 20px;
+        width: fit-content;
+        margin: auto 2rem;
+    }
+    #moneyReqBodyNav{
+        display: block;
+        margin: 1rem;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    .mainBodyNavbar{
+        background-color: #808080a3 !important;
+        border-bottom: unset !important;
+    }
+    #userProfileLogoDiv div:nth-child(1){
+        width: 50px !important;
+    }
+    #moneyReqDiv{
+        padding: 20px;
+        width: fit-content;
+    }
+    #ReqestDiv_body{
+        font-size: medium !important;
+    }
+    #requestorProfImg{
+        width: 80px;
+        height: 60px;
+    }
+    #mainPaymentStatus{
+        border-radius: 20px 20px 0px 0px;
+        margin: 0px 3rem;
+    }
+    #crossDivMR{
+        top: -40px;
+        right: -50px;
+    }
+    #statusImgMR{
+        width: 50%;
+    }
+    #paymentDetailsMR{
+        width: unset;
+    }
+    #paymentD span:first-child{
+        margin-right: 5px;
+    }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+    #moneyReqBodyNav{
+        display: block;
+        margin: 1rem;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    .mainBodyNavbar{
+        background-color: #808080a3 !important;
+        border-bottom: unset !important;
+    }
+    #main_navbar_btn{
+        width: 8%;
+    }
+}

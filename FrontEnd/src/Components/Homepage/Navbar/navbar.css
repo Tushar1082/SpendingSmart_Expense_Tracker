@@ -1,0 +1,242 @@
+/* #main_navbar{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    width: fit-content;
+    animation: leftToRight 0.5s ease-in;
+    background-color: white;
+    position: sticky;
+    top: 0px;
+    height: 100vh;
+    bottom: 0px;
+
+    position: fixed;
+    z-index: -99;
+    left: -100%;
+    transition: transform 0.5s ease-in-out;
+} */
+#main_navbar {
+    display: flex;
+    gap: 0px;
+    width: fit-content;
+    top: 0px;
+    height: 100vh;
+    bottom: 0px;
+    position: sticky;
+    z-index: 100;
+    
+    /* Initially hidden */
+    transition: transform 0.5s ease-in-out;
+}
+@keyframes leftToRight{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+#main_navbar_body{
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    background-color: white;
+}
+#main_navbar_btn{
+    display: none;
+}
+
+#profileImg_navbar{
+    /* width: 100px; */
+    /* height: 100px; */
+    width: 10rem;
+    height: 10rem;
+    border-radius: 20px;
+    overflow: hidden;
+    /* margin: 10px auto; */
+    margin: 3rem auto;
+    margin-bottom: 1rem;
+}
+#profileImg_navbar img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#navDiv_navbar{
+    height: 100%;
+}
+
+#compNavbar{
+    margin: 10px;
+    margin-left: 20px;
+    display: grid;
+    row-gap: 10px;
+    margin-right: 0px;
+    margin-top: 2rem;
+}
+.selectedElem{
+    /* border: 2px solid; */
+    border-radius: 20px 0px 0px 20px;
+    /* padding-left: 10px; */
+    border-right: 0px;
+    background-color: #AFEFEF;/*Soft Mint Cyan*/
+}
+#compNavbar div {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+#compNavbar div span{
+    white-space: nowrap;
+}
+#compNavbar div img{
+    width: 35px;
+}
+#signOutNavDiv{
+    text-align: center;
+    margin-top: 2rem;
+}
+#signOutNavDiv button{
+    padding: 10px 40px;
+    font-weight: bold;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    transition: transform 0.3s ease-in;
+    font-size: larger;
+}
+#signOutNavDiv button:hover{
+    color: black;
+    background-color: white;
+    transform: scale(1.05);
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    transition: transform 0.3s ease-in;
+}
+
+.showHideNavbar{
+    /* display: none !important; */
+    /* position: fixed !important; */
+    /* z-index: 4 !important; */
+    /* left: 0% !important; */
+    transform: translateX(0%) !important;
+
+    /* animation: rightToLeft 1 ease-in-out !important; */
+}
+
+/* Different version of navbar */
+.main_navbar_body{
+    background-image: url(./userProfileBgImg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    box-shadow: 0px 0px 7px 2px black !important;
+    color: white;
+}
+.navSpan{
+    color: white !important;
+}
+.selectedElemNewColor{
+    background-color: #54c8c8;
+    border-radius: 20px 0px 0px 20px;
+    border-right: 0px;
+}
+.signOutNavDivButton{
+    color: black;
+    background-color: white;
+    box-shadow: 0px 0px 5px 1px #9882ee;
+}
+.signOutNavDivButton:hover{
+    box-shadow: 0px 0px 3px 1px black !important;
+}
+/* Mobile (XS) - Small phones */
+@media screen and (max-width: 480px) {
+    /* Adjust layout for small screens */
+}
+
+/* Tablets & Large Phones (SM) */
+@media screen and (max-width: 768px) {
+    /* Optimize for tablets & larger phones */
+}
+
+/* Laptops (MD) */
+@media screen and (max-width: 1024px) {
+    /* Adjust for medium-sized screens */
+}
+
+@media (max-width:700px) {
+    #profileImg_navbar{
+        width: 8rem;
+        height: 8rem;
+    }
+    #main_navbar{
+        position: fixed !important;
+        transform: translateX(-100%);
+    }
+    #main_navbar_btn{
+        width: 8%;
+        height: 18%;
+        align-self: center;
+        background-color: white;
+        border: 2px solid lightgrey;
+        /* border-left: none; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 0px 15px 15px 0px;
+        cursor: pointer;
+    }
+    #main_navbar_btn:active{
+        background-color: lightgrey;
+    }
+    #main_navbar_btn img{
+        width: 100%;
+    }
+    
+}
+@media (min-width:701px) and (max-width:1100px) {
+    #main_navbar{
+        position: fixed !important;
+        transform: translateX(-100%);
+    }
+    #main_navbar_body{
+        padding: 0rem 2rem;
+    }
+    #main_navbar_btn{
+        width: 10%;
+        height: 20%;
+        align-self: center;
+        background-color: white;
+        border: 2px solid lightgrey;
+        /* border-left: none; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 0px 15px 15px 0px;
+        cursor: pointer;
+    }
+    #main_navbar_btn:active{
+        background-color: lightgrey;
+    }
+    #main_navbar_btn img{
+        width: 100%;
+    }
+    #compNavbar div{
+        font-size: larger;
+    }
+    #compNavbar div img{
+        width: 45px;
+    }
+    #signOutNavDiv button{
+        font-size: x-large;
+        margin-top: 2rem;
+    }
+}

@@ -1,0 +1,108 @@
+#mainTransactions{
+    width: 100%;
+}
+
+#transactionListHeading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#transactionListHeading div:nth-child(1){
+    width: 20%;
+}
+#transactionListHeading div:nth-child(1) img{
+    width: 100%;   
+}
+
+#filterBtn_T{
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    border: 2px solid;
+    padding: 5px 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-left: 5rem;
+    margin-top: 4rem;
+}
+#filterBtn_T img{
+    width: 30px;
+}
+#filterBtn_T button{
+    border: none;
+    background-color: white;
+    font-weight: bold;
+    font-size: larger;
+}
+
+#transactionList{
+    /* border: 2px solid; */
+    margin: 0rem 5rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+#transactionItem{
+    border: 1px solid lightgrey;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 3px 9px -3px black;
+    cursor: pointer;
+    transition: transform 0.3s ease-in;
+    margin-bottom:1rem;
+}
+
+#transactionItem:hover{
+    transform: scale(1.04);
+}
+#transactionItem div:nth-child(1){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+#transactionItem div:nth-child(1) p{
+    font-weight: bold;
+    font-size: larger;
+}
+#transactionItem div:nth-child(2){
+    color: #000000b0;
+    font-weight: bold;
+}
+#certainPeriodDiv_T{
+    width: 70%;
+}
+#labelDiv_T{
+    margin: 10px;
+    margin-left: 0px;
+    font-size: 2rem;
+    font-weight: bold;
+    border-bottom: 3px dashed;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+@media (max-width: 481px){
+    #transactionListHeading div:nth-child(1){
+        width: 70%;
+    }
+    #certainPeriodDiv_T{
+        width: 80%;
+    }
+    #transactionList{
+        padding: 2rem 0rem;
+        margin: unset;
+    }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+    #certainPeriodDiv_T{
+        width: 80%;
+    }
+    #transactionList{
+        padding: 2rem 0rem;
+        margin: unset;
+    }
+}

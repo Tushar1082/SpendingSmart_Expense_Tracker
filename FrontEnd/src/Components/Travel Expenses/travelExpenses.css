@@ -1,0 +1,360 @@
+#tourProfCreateMain_TE{
+    padding: 10px 20px;
+    border-radius: 10px;
+    position: fixed;
+    background-color: white;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 3px 2px grey;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    max-height: 80vh;
+    z-index: 100;
+}
+#tourProfCreateMain_TE #crossDiv{
+    width: 35px;
+    cursor: pointer;
+    position: absolute;
+    top: -15%;
+    right: -10%;
+}
+#tourProfCreateMain_TE #crossDiv img{
+    width: 100%;
+}
+#tourProfCreateMain_TE span{
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: large;
+}
+#tourProfCreateMain_TE input:not([type="radio"]){
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    outline: none;
+    font-size: large;
+}
+#tourProfCreateMain_TE input::placeholder{
+    font-size: medium;
+}
+#tourProfCreateMain_TE textarea{
+    resize: none;
+    border: none;
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    outline: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: large;
+    width: 80%;
+}
+#tourProfCreateMain_TE button{
+    border: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 5px 20px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: large;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+#selectedLocationDiv_TE{
+    padding: 10px;
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    border-radius: 10px;
+    width: fit-content;
+}
+#selectedLocations_TE{
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-top: 10px;
+}
+#selectedLocations_TE span{
+    font-size: large;
+    font-weight: bold;    
+}
+#selectMemberDiv_TE{
+    display:'flex';
+    flex-direction:'column';
+    gap:'10px';
+}
+#selectMemberDiv_TE select{
+    width: max-content;
+    border: none;
+    outline: none;
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: medium;
+    margin: 10px 0px;
+}
+#tourMainDiv_TE{
+    display: flex;
+}
+#mainOldTourProfDiv_TE{
+    position: sticky;
+    top: 0px;
+    height: 97vh;
+    max-height: 97vh;
+    overflow-y: auto;
+    box-shadow: 0px 0px 5px 3px lightgrey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+#memberDiv_TE{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#groupTravelProfDetails{
+    display: flex
+    ;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+#locationsGroupTravel{
+    display: flex
+;
+    flex-direction: column;
+    gap: 1rem;
+    border: 2px solid lightgrey;
+    padding: 1rem;
+    border-radius: 10px;
+    position: relative;
+}
+#locationsGroupTravel input{
+    padding: 5px 10px;
+    outline: none;
+    /* border-radius: 7px; */
+    border: none;
+    border-bottom: 2px solid lightgrey;
+    font-size: medium;
+}
+#editProfile_TE{
+    display: flex;
+    position: absolute;
+    top: -10px;
+    right: -20px;
+    border-radius: 50%;
+    background-color: #663399f0;
+    width: 10%;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    transition: transform 0.3s ease-in;
+}
+#editProfile_TE:hover{
+    transform: scale(1.1);
+}
+#editProfile_TE img{
+    width: 100%;
+}
+#profDivInputs_TE input{
+    border: none;
+    border-bottom: 1px solid grey;
+    font-size: large;
+    padding-left: 5px;
+    outline: none;
+}
+#profChangesBtn_TE{
+    margin: auto;
+    background-color: #663399f0;
+    color: white;
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: medium;
+    cursor: pointer;
+}
+#addLocationBtn_TE{
+    margin: auto;
+    border: none;
+    background-color: white;
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: medium;
+    cursor: pointer;
+}
+
+#createIndExp{
+    border: 2px solid green;
+    display: grid;
+    row-gap: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    position: fixed;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#createIndExp #crossDiv{
+    width: 35px;
+    cursor: pointer;
+    position: absolute;
+    top: -15%;
+    right: -10%;
+}
+.cGE p{
+    font-size: large;
+    font-weight: bold;
+    margin: 5px 0px;
+}
+#eachPayBackMembDiv button{
+    margin-left: 10px;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: medium;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#expenseTableDiv_TE table{
+    margin: auto;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+#expenseTableDiv_TE th,
+#expenseTableDiv_TE td {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+#expenseTableDiv_TE th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+#expenseTableDiv_TE tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+#otherLocationDiv{
+    margin-top: 10px;
+}
+#otherLocationDiv input::placeholder{
+    font-size: medium;
+}
+
+@media  (max-width: 480px) {
+    #mainOldTourProfDiv_TE{
+        position: fixed;
+        z-index: 4;
+        background-color: unset;
+        flex-direction: row;
+        box-shadow: unset;
+        left: -100%;
+        padding: unset;
+        transition: left 0.5s ease-in-out;
+    }
+    #oldTourExpenseBody{
+        padding: 20px;
+        background-color: white;
+        border-right: 2px solid lightgrey;
+        height: 100vh;
+        max-height: 100vh;
+        overflow-y: scroll;
+    }
+    #tourHeading{
+        margin-top: 2rem;
+    }
+    #newExp_GE{
+        width: 70%;
+    }
+    #newExp_GE input:not([type="radio"]){
+        width: 90%;
+    }
+    #tourProfCreateMain_TE{
+        width: 75%;
+    }
+}
+@media (min-width: 481px) and (max-width: 768px)
+{
+    #mainOldTourProfDiv_TE{
+        position: fixed;
+        z-index: 4;
+        background-color: unset;
+        flex-direction: row;
+        box-shadow: unset;
+        left: -100%;
+        padding: unset;
+        transition: left 0.5s ease-in-out;
+    }
+    #oldTourExpenseBody{
+        padding: 20px;
+        background-color: white;
+        border-right: 2px solid lightgrey;
+        height: 100vh;
+        max-height: 100vh;
+        overflow-y: scroll;
+    }
+    #tourHeading{
+        margin-top: 2rem;
+    }
+    #newExp_GE{
+        width: 60%;
+    }
+    #newExp_GE input:not([type="radio"]){
+        width: 90%;
+    }
+    #tourProfCreateMain_TE{
+        width: 75%;
+    }
+}
+@media (min-width:700px) and (max-width: 768px){
+    #tourProfCreateMain_TE{
+        width: 50%;
+    }
+    #newExp_GE {
+        width: 50%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    #mainOldTourProfDiv_TE{
+        position: fixed;
+        z-index: 4;
+        background-color: unset;
+        flex-direction: row;
+        box-shadow: unset;
+        left: -100%;
+        padding: unset;
+        transition: left 0.5s ease-in-out;
+    }
+    #oldTourExpenseBody{
+        padding: 20px;
+        background-color: white;
+        border-right: 2px solid lightgrey;
+        height: 100vh;
+        max-height: 100vh;
+        overflow-y: scroll;
+    }
+    #tourHeading{
+        margin-top: 2rem;
+    }
+    #newExp_GE{
+        width: 40%;
+    }
+    #newExp_GE input:not([type="radio"]){
+        width: 90%;
+    }
+
+    #tourProfCreateMain_TE{
+        width: 40%;
+    }
+    #mainOldTourProfDiv_TE{
+        height: 100vh;
+        max-height: 100vh;
+    }
+}

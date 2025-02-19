@@ -1,0 +1,200 @@
+#mainFriends{
+    height: 100vh;
+    background-image: url("./userProfileBgImg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    padding: 10px;
+}
+#friendNavbar{
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: max-content;
+    border-radius: 30px;
+    gap: 100px;
+    margin-bottom: 10px;
+    position: sticky;
+    top: 10px;
+}
+#bodyNavF{
+    display: flex;
+    gap: 40px;
+    padding: 10px 20px;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+#bodyNavF a{
+    color: white;
+    text-decoration: none;
+    font-size: larger;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+#bodyNavF img{
+    width: 2rem;
+}
+#loginImgF{
+    background-color: white;
+    border-radius: 50%;
+    margin: 5px 0px;
+}
+
+#emptyFriendListDiv{
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 10px;
+}
+#emptyFriendListDiv img{
+    width: 80%;
+}
+#emptyFriendListDiv h1{
+    color: white;
+}
+#emptyFriendListDiv button{
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: large;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#friendListDiv{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 20px 50px;
+    border-radius: 20px;
+    height: 70vh;
+    min-height: 70vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+#friendDiv_F{
+    display: flex;
+    color: white;
+    align-items: center;
+    gap: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in;
+    justify-content: space-between;
+}
+#friendDiv_F:hover{
+    transform: scale(1.1);
+}
+#friendDiv_F div:nth-child(2){
+    flex: 1;
+}
+
+#friendDiv_F img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+#friendDiv_F p{
+    font-size: x-large;
+}
+#friendDiv_F button{
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: large;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#mainConfirmBox_f{
+    background-color: black;
+    color: white;
+    position: fixed;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 3px 1px blueviolet;
+}
+#mainConfirmBox_f div:nth-child(1){
+    padding: 5px 10px;
+    border-bottom: 1px solid;
+    text-align: center;
+    width: 30rem;
+}
+#mainConfirmBox_f div:nth-child(1) h1{
+    width: 100%;
+}
+#mainConfirmBox_f div:nth-child(2){
+    padding: 10px 0px;
+    text-align: center;
+}
+#mainConfirmBox_f div:nth-child(2) button:nth-child(1){
+    font-size: larger;
+    padding: 5px 30px;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    background-color: red;
+    font-weight: bold;
+    cursor: pointer;
+}
+#mainConfirmBox_f div:nth-child(2) button:nth-child(2){
+    margin-left: 10px;
+    font-size: larger;
+    padding: 5px 30px;
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    #loginImgF{
+        width: 80%;
+        margin: 5px;
+    }
+    #friendNavbar{
+        gap: 10px;
+    }
+    #friendListDiv{
+        padding: 1rem 2rem;
+    }
+    #friendDiv_F p{
+        font-size: medium;
+    }
+    #friendDiv_F img{
+        width: 50px;
+        height: 50px;
+    }
+    #friendDiv_F button{
+        font-size: medium;
+    }
+}
+@media (min-width:481px) and (max-width: 768px) {
+    #friendNavbar{
+        gap: 20px;
+    }
+    #friendDiv_F p{
+        font-size: larger;
+    }
+    #friendDiv_F button{
+        font-size: medium;
+    }
+}

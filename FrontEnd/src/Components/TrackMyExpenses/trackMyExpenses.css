@@ -1,0 +1,638 @@
+#main_trackMyExpenses{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    /* column-gap: 20px; */
+    /* padding: 10px 30px;    */
+}
+
+#emptyExpenseProfile{
+    width: 35%;
+    margin: auto;
+}
+#emptyExpenseProfile img{
+    width: 100%;
+}
+
+#main_oldExpenses{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: auto;
+    box-shadow: 0px 0px 5px 3px lightgrey;
+    width: fit-content;
+    padding: 10px;
+    z-index: 2;
+}
+
+#createNewExpDiv_TME{
+    padding: 10px 20px;
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0px 0px 3px 1px grey;
+}
+#createNewExpDiv_TME div input:not([type="radio"]){
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    font-size: 15px;
+}
+#createNewExpDiv_TME span{
+    font-weight: bold;
+    font-size: large;
+}
+.trackFor{
+    margin-right: 10px;
+}
+#descriptionDiv_TE{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+#descriptionDiv_TE textarea{
+    resize: none;
+    border: none;
+    box-shadow: 0px 0px 3px 2px lightgrey;
+    outline: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: large;
+}
+
+#createNewExpDiv_TME button{
+    border: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 5px 20px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: large;
+    cursor: pointer;
+}
+#all_expenese_profile{
+    display: flex
+    ;
+        flex-direction: column;
+        align-items: center;
+}
+#each_expense_profile{
+    margin: 10px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    width: fit-content;
+}
+#new_expense_profile_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+#new_expense_profile_div button{
+    color: white;
+    background-color: #F08080;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.5s, background-color 0.5s, color 0.5s;
+}
+#new_expense_profile_div button:hover{
+    color: black;
+    background-color: #C0C0C0;
+    transform: scale(1.05);
+    transition: 0.5s;
+}
+#leftToRightBtn{
+    display: none;
+}
+#eachProfDetails{
+    display:flex; 
+    flex-direction: column; 
+    gap: 10px;
+}
+#delExpProfDiv_TME{
+    box-shadow: 7px 6px 5px 2px lightgrey;
+    overflow: hidden;
+    border-radius: 8px;
+    position: fixed;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+#delExpProfDiv_TME div:first-child{
+    width: 400px;
+    display: flex;
+    align-items: center;
+    background-color: #F08080;
+    justify-content: center;
+    padding: 10px;
+}
+#delExpProfDiv_TME_BTNDIV{
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+#delExpProfDiv_TME_BTNDIV button:nth-child(1){
+    background-color: white;
+    border: 2px solid lightgrey;
+    padding: 10px 30px;
+    border-radius: 10px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+}
+#delExpProfDiv_TME_BTNDIV button:nth-child(2){
+    background-color: #454141;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 10px;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+#expenseProfileDetail_TE{
+    box-shadow: 0px 0px 0px 2px lightgrey;
+    padding: 10px;
+    width: max-content;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+#expenseProfileDetail_TE h2{
+    margin-bottom: 10px;
+}
+#expenseProfileDetail_TE div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: large;
+    justify-content: space-between;
+}
+/* #expenseProfileDetail_TE div:nth-child(2){
+    justify-content: unset;
+} */
+#expenseProfileDetail_TE div:nth-child(2) span{
+    margin-left: 1rem;
+}
+/* #expenseProfileDetail_TE div input{
+    width: 50%;
+} */
+#newExpense{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+#emptyExpenseList{
+    width: 60%;
+    margin: auto;
+}
+#emptyExpenseList img{
+    width: 100%;
+}
+
+#expenseDiv_TME{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+#main_addExpense{
+    padding: 10px;
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0px 0px 3px 1px grey;
+    z-index: 3;
+}
+#main_addExpense div input, #main_addExpense div select{
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 3px 2px lightgrey;
+}
+#main_addExpense div span{
+    margin-right: 10px;
+    font-weight: bold;
+}
+#main_addExpense div:nth-child(3){
+    display: grid;
+    gap: 10px;
+    width: fit-content;
+    margin: auto;
+}
+#addExpense{
+    width: fit-content;
+    margin: 20px auto;
+}
+#addExpense button{
+    border: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: large;
+    cursor: pointer;
+    padding: 10px;
+}
+
+
+#expenseDiv table {
+    margin: auto;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+#expenseDiv th,
+#expenseDiv td {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+#expenseDiv th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+#expenseDiv tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#mainAnalysis{
+    padding: 10px;
+}
+
+#deleteExpProfDiv{
+    text-align: center;
+    margin-top: 20px;
+}
+#deleteExpProfDiv button{
+    color: black;
+    border: none;
+    background-color: white;
+    padding: 5px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#closeBtnDiv{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    transform: translate(100%, -80%);
+    cursor: pointer; 
+}
+#mainVisualCharts{
+    display: flex
+    ;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+}
+#barchartData{
+    width: 700px;
+    margin-bottom: 50px;
+}
+#subBarchartData{
+    width: 700px;
+}
+#pieChartData{
+    width: 500px;
+    height: 500px;
+}
+#eachProfHeading{
+    text-align: center;
+    margin-bottom: 10px;
+}
+#profDescription_T{
+    resize: none;
+    height: 4rem;
+    border-radius: 5px;
+    padding: 10px;
+    outline: none;
+    font-size: large;
+}
+#addExpenseImgDiv{
+    width: 60%;
+    margin: auto;
+}
+#addExpenseImgDiv img{
+    width: 100%;
+}
+.showOldExpProfBar{
+    left: 0% !important;
+}
+@media  (max-width: 480px) {
+    #main_trackMyExpenses{
+        display: block;
+    }
+    #main_oldExpenses{
+        z-index: 4;
+        flex-direction: row;
+        box-shadow: unset;
+        position: fixed;
+        top: 0px;
+        left: -100%;
+        height: unset;
+        max-height: unset;
+        transition: left 0.5s ease-in-out;
+        border: unset !important;
+        padding: unset;
+    }
+    #oldExpenseBody{
+        background-color: white;
+        border-right: 2px solid lightgrey;
+        height: 100vh;
+        max-height: 100vh;
+        overflow-y: scroll;
+    }
+    #leftToRightBtn{
+        display: block;
+        width: fit-content;
+        border: 2px solid lightgrey;
+        background-color: white;
+        border-left: none;
+        padding: 3rem 0.3rem;
+        border-radius: 0px 15px 15px 0px;
+    }
+    #leftToRightBtn img{
+        width: 1.5rem;
+    }
+    #leftToRightBtn:active{
+        background-color: lightgrey;
+    }
+    #expenseProfileDetail_TE{
+        width: 80%;
+    }
+    #expenseProfileDetail_TE div{
+        font-size: medium;
+    }
+    #emptyExpenseListMain{
+        height: 80vh;
+        display: flex
+    ;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #eachProfHeading{
+        font-size: medium;
+    }
+    #eachProfDetails{
+        gap: 5px;
+        font-size: small;
+    }
+    #createNewExpDiv_TME{
+        width: 80%;
+        z-index: 10;
+    }
+    #createNewExpDiv_TME div:not(#closeBtnDiv){
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #descriptionDiv_TE{
+        align-items: unset !important;
+    }
+    #new_expense_profile_div{
+        /* display: none; */
+        padding: unset;
+        /* margin: 10px; */
+        justify-self: center;
+        align-items: unset;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    #new_expense_profile_div button{
+        font-size: 12px;
+    }
+    #allExpenseProfHeading h2{
+        font-size: larger;
+    }
+    #emptyExpenseList{
+        width: 90%;
+        margin: 0px auto;
+    }
+    #main_addExpense{
+        width: 80%;   
+    }
+    #closeBtnDiv{
+        top: 50px;
+        right: 50px;
+        background-color: #80808069;
+        border-radius: 50%;
+        display: flex;
+        padding: 5px;
+        width: 10%;
+    }
+    #closeBtnDiv img{
+        width: 100%;
+    }
+    #mainAnalysis_TME{
+        width: fit-content;
+        margin-bottom: 3rem;
+    }
+    #mainVisualCharts{
+        padding: 10px;
+    }
+    #barchartData{
+        width: 380px;
+        margin-bottom: 50px;
+    }
+    #subBarchartData{
+        width: 380px;
+        margin: auto;
+    }
+    #pieChartData{
+        width: 300px;
+        height: 300px;
+    }
+    #emptyExpenseProfile{
+        width: 80%;
+    }
+    #delExpProfDiv_TME{
+        width: 80%;
+    }
+    #delExpProfDiv_TME div:first-child{
+        width: unset;
+    }
+    #profDivInputs_TE input{
+        width: 85%;
+    }
+}
+
+@media (min-width: 481px) and 
+/* (max-width: 768px)  */
+(max-width: 1024px)
+{
+    #main_trackMyExpenses{
+        display: block;
+    }
+    #main_oldExpenses{
+        z-index: 4;
+        flex-direction: row;
+        box-shadow: unset;
+        position: fixed;
+        top: 0px;
+        left: -100%;
+        height: unset;
+        max-height: unset;
+        transition: left 0.5s ease-in-out;
+        border: unset !important;
+        padding: unset;
+    }
+    #oldExpenseBody{
+        background-color: white;
+        border-right: 2px solid lightgrey;
+        height: 100vh;
+        max-height: 100vh;
+        overflow-y: scroll;
+    }
+    #leftToRightBtn{
+        display: block;
+        width: fit-content;
+        border: 2px solid lightgrey;
+        background-color: white;
+        border-left: none;
+        padding: 3rem 0.3rem;
+        border-radius: 0px 15px 15px 0px;
+        transform: translateX(-1%);
+        z-index: 99;
+    }
+    #leftToRightBtn img{
+        width: 1.5rem;
+    }
+    #leftToRightBtn:active{
+        background-color: lightgrey;
+    }
+    /* #expenseProfileDetail_TE{
+        width: 80%;
+    } */
+    #expenseProfileDetail_TE div{
+        font-size: medium;
+    }
+    #emptyExpenseListMain{
+        height: 80vh;
+        display: flex
+    ;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #each_expense_profile{
+        /* width: 30%; */
+    }
+    #eachProfDetails{
+        gap: 5px;
+        font-size: small;
+    }
+    #createNewExpDiv_TME{
+        z-index: 10;
+    }
+    #new_expense_profile_div{
+        /* display: none; */
+        padding: unset;
+        /* margin: 10px; */
+        justify-self: center;
+        align-items: unset;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    #new_expense_profile_div button{
+        font-size: 12px;
+    }
+    #allExpenseProfHeading h2{
+        font-size: larger;
+    }
+    #emptyExpenseList{
+        width: 90%;
+        margin: 0px auto;
+    }
+    #main_addExpense{
+     width: 80%;   
+    }
+    #main_addExpense div:nth-child(3){
+        width: 90%;
+    }
+    #closeBtnDiv{
+        top: 60px;
+        right: 75px;
+        background-color: #80808069;
+        border-radius: 50%;
+        display: flex;
+        padding: 5px;
+        width: 10%;
+    }
+    #closeBtnDiv img{
+        width: 100%;
+    }
+    #main_addExpense div span{
+        font-size: larger;
+    }
+    #mainAnalysis_TME{
+        width: fit-content;
+    }
+    #mainVisualCharts{
+        padding: 10px;
+    }
+    #barchartData{
+        width: 580px;
+        margin-bottom: 50px;
+    }
+    #subBarchartData{
+        width: 580px;
+        margin: auto;
+    }
+    #pieChartData{
+        width: 400px;
+        height: 400px;
+    }
+    #emptyExpenseProfile{
+        width: 80%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    #addExpenseImgDiv{
+        width: 40%;
+    }
+    #closeBtnDiv{
+        /* width: 6%; */
+    }
+    #main_addExpense{
+        width: 50%;
+    }
+    #mainAnalysis_TME{
+        width: unset;
+    }
+}

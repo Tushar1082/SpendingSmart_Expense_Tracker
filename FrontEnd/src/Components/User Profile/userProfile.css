@@ -1,0 +1,324 @@
+#mainUserProfile{
+    height: 100vh;
+    background-image: url("./userProfileBgImg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    padding: 10px;
+}
+#userProfileNavbar{
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: max-content;
+    border-radius: 30px;
+    gap: 50px;
+    margin-bottom: 10px;
+    position: sticky;
+    top: 10px;
+    margin-top: 10px;
+}
+#userProfileLogoDiv{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+}
+#userProfileLogoDiv div:nth-child(1){
+    width: 80px;
+}
+#userProfileLogoDiv div:nth-child(2){
+    width: 200px;
+}
+#userProfileLogoDiv div img{
+    width: 100%;
+}
+
+#userProfileBox{
+    position: absolute;
+    display: grid;
+    gap: 25px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 20px;
+    max-height: 80vh;
+    overflow: auto;
+}
+#imageNameDiv_UP{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+#imageNameDiv_UP img:nth-child(1){
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+#imageNameDiv_UP img:nth-child(2){
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+    width: 2.5rem;
+    cursor: pointer;
+}
+#userProfMid{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+#userProfMid div{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+#userProfMid div img{
+    position: absolute;
+    width: 1.7rem;
+    right: 10px;
+    cursor: pointer;
+}
+#userProfMid div span{
+    font-size: x-large;
+}
+#userProfMid div input,#changePassDiv input{
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: larger;
+}
+#userProfMid div input:disabled{
+    color: black;
+}
+
+
+#saveChangesDiv_UP{
+    text-align: center;
+}
+#saveChangesDiv_UP button{
+    border: none;
+    background-color: white;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 30px;
+    font-size: larger;
+    cursor: pointer;
+}
+#changePassBtn button{
+    color: white;
+    background-color: #F08080;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#changePassDiv{
+    display:grid;
+    gap: 20px;
+}
+#changePassDiv div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#changePassDiv span{
+    font-size: x-large;
+    margin-right: 20px;
+}
+/* Mobile (XS) - Small phones */
+@media  (max-width: 480px) {
+    /* Adjust layout for small screens */
+    #userProfileNavbar{
+        gap: 10px ;
+    }
+    #userProfileLogoDiv div:nth-child(1){
+        width: 50px;
+    }
+    #userProfileLogoDiv div:nth-child(2){
+        display: none;
+    }
+    #bodyNavF{
+        gap: 10px !important;
+        padding: 0px 15px !important;
+    }
+    #bodyNavF a{
+        gap: 5px !important;
+        font-size: small !important;
+    }
+    #bodyNavF img{
+        width: 2rem !important;
+    }
+    #profImgBN{
+        height: 2rem;
+        margin-right: 0px;
+    }
+
+    #userProfileBox{
+        top: 45%;
+    }
+    #imageNameDiv_UP img:nth-child(1){
+        width: 100px;
+        height: 100px;
+    }
+    #imageNameDiv_UP img:nth-child(2){
+        width: 2rem;
+    }
+    #userEmailIdShown p{
+        font-size: large !important;
+    }
+    #userProfMid{
+        gap: 30px;
+    }
+    #userProfMid div span{
+        font-size: large;
+    }
+    #userProfMid div input, #changePassDiv input{
+        font-size: smaller;
+    }
+    #userProfMid div img{
+        width: 1.4rem;
+    }
+    #userProfMid div span{
+        font-size: large;
+    }
+    #changePassBtn button{
+        font-size: 12px;
+    }
+    #saveChangesDiv_UP button{
+        font-size: large;
+    }
+}
+
+/* Tablets & Large Phones (SM) */
+@media (min-width: 481px) and (max-width: 768px) {
+    /* Optimize for tablets & larger phones */
+    #userProfileNavbar{
+        gap: 20px;
+    }
+    #userProfileLogoDiv{
+        flex-direction: unset;
+    }
+    #userProfileLogoDiv div:nth-child(2){
+        display: none;
+    }
+    #imageNameDiv_UP{
+        gap: 40px;
+    }
+    #userEmailIdShown{
+        width: max-content;
+    }
+}
+
+/* Laptops (MD) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Adjust for medium-sized screens */
+    #userProfileNavbar{
+        gap: 25px;
+    }
+    #bodyNavF a{
+        font-size: x-large;
+    }
+    #bodyNavF img{
+        width: 3rem !important;
+    }
+    #userProfileBox{
+        gap: 30px;
+    }
+    #userProfMid div span{
+        font-size: xx-large;
+        width: max-content;
+    }
+    #imageNameDiv_UP img:nth-child(1){
+        width: 200px;
+        height: 200px;
+    }
+    #userEmailIdShown p:nth-child(1){
+        font-size: xxx-large !important;
+    }
+    #userEmailIdShown p:nth-child(2){
+        font-size: xx-large !important;
+    }
+    #userProfMid div{
+        gap: 8rem;
+    }
+    #userProfMid div input, #changePassDiv input{
+        font-size: x-large;
+    }
+    #changePassBtn button{
+        font-size: x-large;
+    }
+    #saveChangesDiv_UP button{
+        font-size: x-large;
+    }
+}
+
+/* @media (min-width:600px) and (max-width:1100px) {
+    #userProfileNavbar{
+        gap: 20px;
+    }
+    #userProfileLogoDiv{
+        flex-direction: unset;
+    }
+    #userProfileLogoDiv div:nth-child(2){
+        display: none;
+    }
+    #imageNameDiv_UP{
+        gap: 40px;
+    }
+    #userEmailIdShown{
+        width: max-content;
+    }
+} */
+
+/* @media (min-width:701px) and (max-width:1100px) {
+    #mainUserProfile{
+        padding: 10px;
+    }
+    #friendNavbar{
+        margin-top: 3rem;
+        padding: 20px 5px;
+    }
+    #bodyNavF a{
+        font-size: xx-large;
+    }
+    #bodyNavF img{
+        width: 3rem;
+    }
+    #bodyNavF img{
+        width: 5rem;
+    }
+    #profImgBN{
+        height: 5rem;
+    }
+    #userProfileBox{
+        top: 40%;
+        width: 70%;
+        padding: 30px 50px;
+    }
+    #imageNameDiv_UP{
+        gap: 40px;
+    }
+    #userProfMid{
+        font-size: x-large;
+    }
+    #userProfMid div span{
+        font-size: xx-large;
+    }
+    #changePassBtn button{
+        font-size: x-large;
+    }
+    #saveChangesDiv_UP button{
+        font-size: xx-large;
+        font-weight: bold;
+        padding: 10px 30px;
+    }
+} */
