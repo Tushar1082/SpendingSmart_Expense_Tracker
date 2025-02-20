@@ -59,9 +59,7 @@ export default function Hompage() {
      alert('error while get data from user');
      console.log(error);   
     }finally{
-      setTimeout(()=>{
         setShowLoading(false);
-      },2000)
     }
   }
 
