@@ -1,6 +1,6 @@
 #mainFriends{
     height: 100vh;
-    background-image: url("./userProfileBgImg.jpg");
+    background-image: url("../../../public/userProfileBgImg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
