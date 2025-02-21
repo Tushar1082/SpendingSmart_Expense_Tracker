@@ -85,7 +85,7 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
     <div>
       <BodyNavbar/>
       <div id='mainBodyDiv'>
-        {/*<div 
+        <div 
         id='sliderDiv'
         className={animate ? 'animate' : ''}
       >
@@ -97,7 +97,7 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
           <p>{currentSlide.description}</p>
           {currentSlide.title!=="Analyze and Optimize Spending"?<Link to={currentSlide.link}><button>Begin</button></Link>:null}
         </div>
-      </div>*/}
+      </div>
 
       <div id='servicesMain'>
         <div id='servicesHeading'>
