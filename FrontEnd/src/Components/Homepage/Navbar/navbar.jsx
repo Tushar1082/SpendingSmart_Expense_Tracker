@@ -16,7 +16,7 @@ export default function Navbar({setCurrentComp,userImg, userName,handleClick,sel
       {/* User Info */}
       <div id='main_navbar_body' className={selected==2?'main_navbar_body':''}>
         <div id="profileImg_navbar">
-          <img src={ userImg || "./dummyProfileImg.png"} alt="error" />
+          <img src={ userImg || "./dummyProfileImg.png"} alt="error" loading='lazy' />
         </div>
         {/* <h3 style={{ textAlign: 'center', borderBottom:'3px solid lightgrey' }}>
           <i>Hello, {userName}</i>
