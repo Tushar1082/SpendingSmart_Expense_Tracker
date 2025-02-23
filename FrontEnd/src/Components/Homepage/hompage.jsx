@@ -15,10 +15,8 @@ export default function Hompage() {
   const [showLoading, setShowLoading] = useState(false);
   const navigate = useNavigate();
   //670e95486dcd2b58d76a99e3 --> alice
-  // const user_id = localStorage.getItem('Spending_Smart_User_id');
-  localStorage.setItem('Spending_Smart_User_id','67b5603143fbb82dca78bf50');
-  const user_id = '67b5603143fbb82dca78bf50';
-  
+  const user_id = localStorage.getItem('Spending_Smart_User_id');
+
   function checkLogined(){
     if(!user_id){
       navigate('/signin');
@@ -59,7 +57,7 @@ export default function Hompage() {
      alert('error while get data from user');
      console.log(error);   
     }finally{
-        setShowLoading(false);
+      setShowLoading(false);
     }
   }
 
