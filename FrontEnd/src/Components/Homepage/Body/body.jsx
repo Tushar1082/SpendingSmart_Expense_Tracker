@@ -10,24 +10,29 @@ import Loader from '../../Loader/loader';
 export default function Body({friendRequests,moneyRequests,LastTransactions,callUserData,reqGetterName,reqGetterProfileImg,setCurrentComp,handleClick}) {
   const slider = [
     {
-      source:'./slider/trackExpensesEffortlessly.jpg',
+      source: "https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2Fslider%2FtrackExpensesEffortlessly.webp?alt=media&token=9eed43b0-5cb5-4f96-92a5-ef3d466d6635"
+      ,
+      // source:'./slider/trackExpensesEffortlessly.jpg',
       title:'Track Your Expenses Effortlessly',
       description:'Monitor daily, monthly, and yearly expenses at a glance. Stay on top of your spending like never before!',
       link: './trackMyExpenses'
     },
     {
-      source:'./slider/savingGoals.jpg',
-      title:'Set and Achieve Saving Goals',
+      // source:'./slider/savingGoals.jpg',
+      source: 'https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2Fslider%2FsavingGoals.webp?alt=media&token=f2a2867d-f652-475b-bd56-77a34f81487b'
+      ,title:'Set and Achieve Saving Goals',
       description:'Plan your savings and watch your progress grow. Make your financial dreams a reality.',
       link: './savingGoals'
     },
     {
-      source:'./slider/analyze.jpg',
+      // source:'./slider/analyze.jpg',
+      source: 'https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2Fslider%2Fanalyze.webp?alt=media&token=8f5d544e-b2d3-4c38-a96f-316c364ffa7a',
       title:'Analyze and Optimize Spending',
       description:'Gain insights into your spending patterns and make smarter financial decisions.',
     },
     {
-      source:'./slider/collaborateWithFriends.jpg',
+      // source:'./slider/collaborateWithFriends.jpg',
+      source:'https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2Fslider%2FcollaborateWithFriends.webp?alt=media&token=8e72118f-8eef-4ae5-97d0-0cb0a1a9a9df',
       title:'Collaborate with Friends',
       description:'Easily track group expenses and share costs with your friends. Simplify financial planning together.',
       link: './groupExpenses'
@@ -84,13 +89,37 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
   return (
     <div>
       <BodyNavbar/>
-      <div id='mainBodyDiv'>
-        <div 
+    <div id='mainBodyDiv'>
+      <div 
         id='sliderDiv'
-        className={animate ? 'animate' : ''}
+        className={animate ? 'animate notRespView' : ''}
       >
         <div>
-          <img src={currentSlide.source} alt="error" />
+          <img 
+            src={currentSlide.source} 
+            alt="error" 
+            fetchPriority={currentSlide.title==='Track Your Expenses Effortlessly'?'high':'low'}
+            loading='lazy'
+          />
+        </div>
+        <div>
+          <h2>{currentSlide.title}</h2>
+          <p>{currentSlide.description}</p>
+          {currentSlide.title!=="Analyze and Optimize Spending"?<Link to={currentSlide.link}><button>Begin</button></Link>:null}
+        </div>
+      </div>
+
+      <div 
+        id='sliderDiv'
+        className={animate ? 'animate responiveView' : ''}
+      >
+        <div>
+          <img 
+            src={currentSlide.source} 
+            alt="error" 
+            fetchPriority={currentSlide.title==='Track Your Expenses Effortlessly'?'high':'low'}
+            loading='lazy'
+          />
         </div>
         <div>
           <h2>{currentSlide.title}</h2>
@@ -106,7 +135,7 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
         <div id='mainServices'>
           <div id='cardDiv_Body'>
             <div id='cardDivImg_Body'>
-              <img src="services/trackMyExpenses.png" alt="error" />
+              <img loading='lazy' src="https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2FourServices%2FtrackMyExpenses.webp?alt=media&token=e1700af1-ac43-4502-a876-29c387c0d51c" alt="error" />
             </div>
             <div id='cardDivContent_Body'>
               <div>
@@ -128,7 +157,7 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
 
           <div id='cardDiv_Body'>
             <div id='cardDivImg_Body'>
-              <img src="groupExpenses.jpeg" alt="error" />
+              <img loading='lazy' src="https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2FourServices%2FgroupExpenses.webp?alt=media&token=b5d9d02b-8739-4608-a583-7d6edff982a3" alt="error" />
             </div>
             <div id='cardDivContent_Body'>
               <div>
@@ -151,7 +180,7 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
 
           <div id='cardDiv_Body'>
             <div id='cardDivImg_Body'>
-              <img src="services/travelExpenses.png" alt="error" />
+              <img loading='lazy' src="https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2FourServices%2FtravelExpenses.webp?alt=media&token=9da5600c-9af2-4db8-a42c-c40982f37125" alt="error" />
             </div>
             <div id='cardDivContent_Body'>
               <div>
@@ -173,7 +202,7 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
 
           <div id='cardDiv_Body'>
             <div id='cardDivImg_Body'>
-              <img src="services/recurringExpenses.jpg" alt="error" />
+              <img loading='lazy' src="https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2FourServices%2FrecurringExpenses.webp?alt=media&token=0e7b58ba-0585-4bbe-a32f-02203d7e7352" alt="error" />
             </div>
             <div id='cardDivContent_Body'>
               <div>
@@ -195,7 +224,7 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
 
           <div id='cardDiv_Body'>
             <div id='cardDivImg_Body'>
-              <img src="services/savingGoals.png" alt="error" />
+              <img loading='lazy' src="https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2FourServices%2FsavingGoals.webp?alt=media&token=0810db9e-f5e9-4f09-8f57-28b8cc4efe79" alt="error" />
             </div>
             <div id='cardDivContent_Body'>
               <div>
@@ -362,4 +391,3 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
   )
 }
 
-{/* <Link to="/reports"><li>Reports</li></Link> */}
