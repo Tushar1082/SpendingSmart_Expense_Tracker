@@ -14,8 +14,10 @@ export default function Hompage() {
   const [userData, setUserData] = useState();
   const [showLoading, setShowLoading] = useState(false);
   const navigate = useNavigate();
-  //670e95486dcd2b58d76a99e3 --> alice
-  const user_id = localStorage.getItem('Spending_Smart_User_id');
+
+  // const user_id = localStorage.getItem('Spending_Smart_User_id');
+  const user_id = "67b5603143fbb82dca78bf50";
+  localStorage.setItem('Spending_Smart_User_id',"67b5603143fbb82dca78bf50");
 
   function checkLogined(){
     if(!user_id){
