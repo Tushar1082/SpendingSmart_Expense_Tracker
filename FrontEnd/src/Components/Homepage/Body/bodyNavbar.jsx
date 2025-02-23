@@ -127,10 +127,10 @@ export default function BodyNavbar() {
       </div>
       <div id='logoDiv' onClick={()=>window.location.href="/"}>
         <div>
-          <img src="./logo.png" alt="error" />
+          <img src="./logo.png" alt="error" loading='lazy' />
         </div>
         <div>
-          <img src="./logoTitle.png" alt="error" />
+          <img src="./logoTitle.png" alt="error" loading='lazy' />
         </div>
       </div>
 
@@ -140,7 +140,7 @@ export default function BodyNavbar() {
           <span>Home</span>
         </Link>
         <Link to="/userProfile">
-          <img src={ profImg || "./dummyProfileImg.png"} alt="error" id='profImgBN' />
+          <img src={ profImg || "./dummyProfileImg.png"} alt="error" id='profImgBN' loading='lazy' />
           <span>Profile</span>
         </Link>
         <Link to="/friends">
@@ -171,7 +171,7 @@ export default function BodyNavbar() {
                 {/* <p>{new Date(elm.date).toLocaleDateString()}</p> */}
                 <p>{new Date(elm.date).toLocaleString()}</p>
                 <div id='messageDiv'>
-                  <img src={elm.profile_image} alt="error" />
+                  <img src={elm.profile_image} alt="error" loading='lazy' />
                   <span>{elm.message}</span>
                 </div>
               </div>
@@ -181,6 +181,7 @@ export default function BodyNavbar() {
             <div id='emptyNotifDiv'>
               <img src="./emptyNotificaitonList.jpg" alt="error" 
               style={{width:'100%'}} 
+              loading='lazy'
               />
             </div>
           }
