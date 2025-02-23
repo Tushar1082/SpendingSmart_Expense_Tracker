@@ -336,10 +336,19 @@
     width: 40px;
     cursor: pointer;
 }
+.responiveView{
+    display: none !important;
+}
 
 /* Mobile (XS) - Small phones */
 @media (max-width: 480px) {
     /* Adjust layout for small screens */
+    .responiveView{
+        display: flex !important;
+    }
+    .notRespView{
+        display: none !important;
+    }
     #sliderDiv{
         flex-direction: column;
     }
@@ -421,6 +430,12 @@
         width: unset;
         max-width: unset;
     } */
+    .responiveView{
+        display: flex !important;
+    }
+    .notRespView{
+        display: none !important;
+    }
     #sliderDiv div:nth-child(2){
         font-size: x-small;
     }
