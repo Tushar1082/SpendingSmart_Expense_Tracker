@@ -135,10 +135,12 @@ export default function MoneyRequests({ callUserData, moneyRequests, user_id }) 
                                     style={{ width: "100%", objectFit: "cover" }}
                                 />
                             </div>
-                            <div>
-                                <p style={{ color: "white" }}>
+                            <div style={{color:"white"}}>
+                                <p>
                                     <strong>{elm.moneyRequestor_name}</strong> is requesting payment for <strong>{elm.expense_name}</strong> expense from <strong>{elm.from}</strong>
                                 </p>
+                                <p style={{fontSize:"medium"}}><span>Expense Amount: </span><span>₹{elm.expense_amount.$numberDecimal}</span></p>
+                                <p style={{fontSize:"medium"}}><span>Requested Amount: </span><span>₹{elm.requested_amount.$numberDecimal}</span></p>
                             </div>
                             <div id="paymentBtn_MR">
                                 <button onClick={() => makePayment(elm,idx)}>
