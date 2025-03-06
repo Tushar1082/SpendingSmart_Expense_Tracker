@@ -1172,8 +1172,8 @@ export default function TravelExpenses() {
                                 <th>Expense Name</th>
                                 <th>Expense Amount</th>
                                 <th>Payer Name</th>
-                                <th>Payee Name</th>
                                 <th>Payer Amount</th>
+                                <th>Payee Name</th>
                                 <th>Payee Amount</th>
                             </tr>
                         </thead>
