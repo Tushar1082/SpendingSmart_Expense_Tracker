@@ -333,6 +333,7 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
                     </div>
                     <div>
                       <p style={{color:'white', fontSize:'large'}}> <strong>{elm.moneyRequestor_name}</strong> is requested payment for <strong>{elm.expense_name}</strong> expense from <strong>{elm.from}</strong></p>
+                      <p><span style={{fontWeight:'bold', marginTop:'5px'}}>Amount: </span><span>₹{elm.requested_amount.$numberDecimal}</span></p>
                     </div>
                 </div>
                 ))}
@@ -390,4 +391,3 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
     </div>
   )
 }
-
