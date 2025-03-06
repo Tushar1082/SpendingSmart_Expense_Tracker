@@ -822,7 +822,7 @@ export default function SavingGoals() {
 
             {/* show transaction list of selected saving goals profile */}
             {showSavGoalProf && showTransList && 
-            <div id='main_expenses'>
+            <div id='main_expenses' style={{marginBottom:"3rem"}}>
                 {/* Below show list of transactions of an saving goals profile*/}
                 { showTransList && savGoalTransList.length>0 &&
                 <>
