@@ -989,31 +989,6 @@ export default function GroupExpenses({
                     </div>
                 </div>
 
-                    {/* Accordion Menu */}
-                    {/* {showSettlement && accordionData.length > 0 && (
-                        <div className="accordion-container">
-                            {accordionData.map((item, index) => (
-                                <div key={index} className="accordion-item">
-                                    <button
-                                        onClick={() => handleAccordionToggle(index)}
-                                        className={`accordion-button ${activeIndex === index ? 'active' : ''}`}
-                                    >
-                                        {item.payee} has to pay back to {item.payer} ({item.expenseName})
-                                    </button>
-
-                                    Accordion Content
-                                    {activeIndex === index && (
-                                        <div className="accordion-content">
-                                            <p><strong>Expense Name:</strong> {item.expenseName}</p>
-                                            <p><strong>Total Expense:</strong> ₹{item.totalAmount.toFixed(2)}</p>
-                                            <p><strong>{item.payee} has to pay back:</strong> ₹{item.paybackAmount.toFixed(2)}</p>
-                                        </div>
-                                    )}
-                                </div>
-
-                            ))}
-                        </div>
-                    )} */}
             {showSettlement && tableData.length > 0 && (
                 <div className="table-container">
                     <table border="1" cellPadding="10">
@@ -1023,8 +998,8 @@ export default function GroupExpenses({
                                 <th>Expense Name</th>
                                 <th>Expense Amount</th>
                                 <th>Payer Name</th>
-                                <th>Payee Name</th>
                                 <th>Payer Amount</th>
+                                <th>Payee Name</th>
                                 <th>Payee Amount</th>
                             </tr>
                         </thead>
