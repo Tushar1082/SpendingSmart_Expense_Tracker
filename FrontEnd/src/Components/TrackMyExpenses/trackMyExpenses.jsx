@@ -552,7 +552,7 @@ function handleBarPieChart(data, budget) {
             {/* Below part show old created expenses profiles */}
 
             {state && 
-            exp_pr.length > 0 && <div id='main_oldExpenses' className={showHideProfBar?'showOldExpProfBar':''}>
+            exp_pr.length > 0 && <div id='main_oldExpenses' style={{width:'unset'}} className={showHideProfBar?'showOldExpProfBar':''}>
                 <div id='oldExpenseBody'>
                     <div id='all_expenese_profile'>
                         <div style={{margin:'1rem'}} id='allExpenseProfHeading'>
