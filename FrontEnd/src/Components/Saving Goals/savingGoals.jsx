@@ -705,7 +705,7 @@ export default function SavingGoals() {
 
             {/* old saving goals profile */}
             {showSavGoalProf && savGoalsPr.length>0 &&
-            <div id='oldSavGoalProf' className={showHideProfBar?'showOldExpProfBar':''}>
+            <div id='oldSavGoalProf' style={{width:'unset'}} className={showHideProfBar?'showOldExpProfBar':''}>
                 <div id='oldExpenseBody'>
                         <div id='all_expenese_profile'>
                         <div style={{margin:'1rem'}} id='allExpenseProfHeading'>
