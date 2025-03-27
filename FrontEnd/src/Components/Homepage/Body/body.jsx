@@ -7,7 +7,10 @@ import BodyNavbar from './bodyNavbar';
 import Footer from '../Footer/footer';
 import Loader from '../../Loader/loader';
 
-export default function Body({friendRequests,moneyRequests,LastTransactions,callUserData,reqGetterName,reqGetterProfileImg,setCurrentComp,handleClick}) {
+function SliderComp(){
+  const [animate, setAnimate] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
   const slider = [
     {
       source: "https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2Fslider%2FtrackExpensesEffortlessly.webp?alt=media&token=9eed43b0-5cb5-4f96-92a5-ef3d466d6635"
@@ -38,10 +41,132 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
       link: './groupExpenses'
     }
   ];
-  const [showFriendReqDia,setShowFriendReqDia] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [animate, setAnimate] = useState(true);
   const currentSlide = slider[currentIndex];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAnimate(false)
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slider.length); // Cycles back to the first slide
+      setTimeout(()=>setAnimate(true),100);
+    }, 3000);
+
+    // Clear interval on component unmount
+    return () => clearInterval(interval);
+  }, []);
+
+  return(
+    <>
+    <div 
+      id='sliderDiv'
+      className={animate ? 'animate notRespView' : ''}
+    >
+      <div>
+        <img 
+          src={currentSlide.source} 
+          alt="error" 
+          fetchPriority={currentSlide.title==='Track Your Expenses Effortlessly'?'high':'low'}
+          loading='lazy'
+        />
+      </div>
+      <div>
+        <h2>{currentSlide.title}</h2>
+        <p>{currentSlide.description}</p>
+        {currentSlide.title!=="Analyze and Optimize Spending"?<Link to={currentSlide.link}><button>Begin</button></Link>:null}
+      </div>
+    </div>
+
+    <div 
+      id='sliderDiv'
+      className={animate ? 'animate responiveView' : ''}
+    >
+      <div>
+        <img 
+          src={currentSlide.source} 
+          alt="error" 
+          fetchPriority={currentSlide.title==='Track Your Expenses Effortlessly'?'high':'low'}
+          loading='lazy'
+        />
+      </div>
+      <div>
+        <h2>{currentSlide.title}</h2>
+        <p>{currentSlide.description}</p>
+        {currentSlide.title!=="Analyze and Optimize Spending"?<Link to={currentSlide.link}><button>Begin</button></Link>:null}
+      </div>
+    </div> 
+    </>
+  )
+}
+function MainServices(){
+  const services = [
+    {
+      id:1,
+      name:"Track My Expenses",
+      image:'https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2FourServices%2FtrackMyExpenses.webp?alt=media&token=e1700af1-ac43-4502-a876-29c387c0d51c',
+      url:'/trackMyExpenses',
+      description:'Click to explore and start tracking now!'
+    },
+    {
+      id:2,
+      name:"Group Expenses",
+      image:'https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2FourServices%2FgroupExpenses.webp?alt=media&token=b5d9d02b-8739-4608-a583-7d6edff982a3',
+      url: '/groupExpenses',
+      description:'Click to organize group expenses now!'
+    },
+    {
+      id:3,
+      name:"Travel Expenses",
+      image:'https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2FourServices%2FtravelExpenses.webp?alt=media&token=9da5600c-9af2-4db8-a42c-c40982f37125',
+      url:'/travelExpenses',
+      description:'Click to start tracking your travel expenses now!'
+    },{
+      id:4,
+      name:"Recurring Expenses",
+      image:'https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2FourServices%2FrecurringExpenses.webp?alt=media&token=0e7b58ba-0585-4bbe-a32f-02203d7e7352',
+      url: '/recurringExpenses',
+      description:'Click to manage your recurring expenses now!'
+    },{
+      id:5,
+      name:"Saving Goals",
+      image:'https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2FourServices%2FsavingGoals.webp?alt=media&token=0810db9e-f5e9-4f09-8f57-28b8cc4efe79',
+      url:'/savingGoals',
+      description:'Click to start saving smarter today!'
+    }
+  ]
+  return(
+    <div id='servicesMain'>
+    <div id='servicesHeading'>
+      <h1>Our Services</h1>
+    </div>
+    <div id='mainServices'>
+
+    </div>
+    <div id='mainServices'>
+      {
+        services.map((elm,idx)=>(
+        <div id='cardDiv_Body' key={elm.id}>
+          <div id='cardDivImg_Body'>
+            <img loading='lazy' src={elm.image} alt="error" />
+          </div>
+          <div id='cardDivContent_Body'>
+            <div>
+              <p>{elm.description}</p>
+            </div>
+            <div style={{textAlign:'center', margin:'0.5rem auto'}}>
+              <Link to={elm.url} id='cardBtn_Body'>{elm.name}</Link>
+            </div>
+          </div>
+        </div>
+
+        ))
+      }
+    </div>
+  </div>
+  );
+}
+
+export default function Body({friendRequests,moneyRequests,LastTransactions,callUserData,reqGetterName,reqGetterProfileImg,setCurrentComp,handleClick}) {
+
+  const [showFriendReqDia,setShowFriendReqDia] = useState(false);
   const user_id = localStorage.getItem('Spending_Smart_User_id');
   const [showLoading, setShowLoading] = useState(false);
   const dispatch = useDispatch();
@@ -75,175 +200,41 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
     }
   }
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setAnimate(false)
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % slider.length); // Cycles back to the first slide
-      setTimeout(()=>setAnimate(true),100);
-    }, 3000);
-
-    // Clear interval on component unmount
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div>
       <BodyNavbar/>
     <div id='mainBodyDiv'>
-      <div 
-        id='sliderDiv'
-        className={animate ? 'animate notRespView' : ''}
-      >
-        <div>
-          <img 
-            src={currentSlide.source} 
-            alt="error" 
-            fetchPriority={currentSlide.title==='Track Your Expenses Effortlessly'?'high':'low'}
-            loading='lazy'
-          />
+      {/* <SliderComp/> */}
+      <div id='mainHS' className='mobileHS'>
+        <div id='heroSecCon'>
+          <div>
+            <h1>Track, Save, Grow – Your Smart Expense Companion</h1>
+          </div>
+          <div>
+            <p>Stay in control of your finances with our seamless expense tracker. Monitor your spending, set budgets, and achieve financial goals effortlessly. Smart insights, easy tracking, and a stress-free financial future—start today!</p>
+          </div>
+          <div>
+            <button>Let's Begin</button>
+          </div>
         </div>
-        <div>
-          <h2>{currentSlide.title}</h2>
-          <p>{currentSlide.description}</p>
-          {currentSlide.title!=="Analyze and Optimize Spending"?<Link to={currentSlide.link}><button>Begin</button></Link>:null}
+
+        <div id='heroSecConMob'>
+          <div>
+            <h1>Track Your Expense Smartly</h1>
+          </div>
+          <div>
+            <p>Take control of your finances—track expenses, set budgets, and reach your goals effortlessly.</p>
+          </div>
+          <div>
+            <button>Let's Begin</button>
+          </div>
+        </div>
+        <div id='heroSecImg'>
+          <img src="heroSectionImg.webp" alt="error" loading='lazy' />
         </div>
       </div>
-
-      <div 
-        id='sliderDiv'
-        className={animate ? 'animate responiveView' : ''}
-      >
-        <div>
-          <img 
-            src={currentSlide.source} 
-            alt="error" 
-            fetchPriority={currentSlide.title==='Track Your Expenses Effortlessly'?'high':'low'}
-            loading='lazy'
-          />
-        </div>
-        <div>
-          <h2>{currentSlide.title}</h2>
-          <p>{currentSlide.description}</p>
-          {currentSlide.title!=="Analyze and Optimize Spending"?<Link to={currentSlide.link}><button>Begin</button></Link>:null}
-        </div>
-      </div>
-
-      <div id='servicesMain'>
-        <div id='servicesHeading'>
-          <h1>Our Services</h1>
-        </div>
-        <div id='mainServices'>
-          <div id='cardDiv_Body'>
-            <div id='cardDivImg_Body'>
-              <img loading='lazy' src="https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2FourServices%2FtrackMyExpenses.webp?alt=media&token=e1700af1-ac43-4502-a876-29c387c0d51c" alt="error" />
-            </div>
-            <div id='cardDivContent_Body'>
-              <div>
-                <ul style={{display:'grid', gap:'5px'}}>
-                  <li>Create & manage expense profiles. Each Profile have their own expense list</li>
-                  <li>Categorize spending for better insights</li>
-                  <li>Easily create, manage and delete expenses in expense list</li>
-                  <li>Visual analysis to track financial habits</li>
-                </ul>
-              </div>
-              <div>
-                <p>Click to explore and start tracking now!</p>
-              </div>
-              <div style={{textAlign:'center', marginTop:'0.5rem'}}>
-                <Link to='/trackMyExpenses' id='cardBtn_Body'>Track My Expenses</Link>
-              </div>
-            </div>
-          </div>
-
-          <div id='cardDiv_Body'>
-            <div id='cardDivImg_Body'>
-              <img loading='lazy' src="https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2FourServices%2FgroupExpenses.webp?alt=media&token=b5d9d02b-8739-4608-a583-7d6edff982a3" alt="error" />
-            </div>
-            <div id='cardDivContent_Body'>
-              <div>
-                <ul style={{display:'grid', gap:'5px'}}>
-                  <li>Create & manage group expense profiles. Each Profile have their own expense list</li>
-                  <li>Add, track, and split expenses in real time</li>
-                  <li>Ensure fair contribution and easy settlements</li>
-                  <li>Easily create, manage and delete expenses in expense list</li>
-                  <li>Visual analysis to track financial habits</li>
-                </ul>
-              </div>
-              <div>
-                <p>Click to organize group expenses now!</p>
-              </div>
-              <div style={{textAlign:'center', marginTop:'0.5rem'}}>
-                <Link to="/groupExpenses" id='cardBtn_Body'>Group Expenses</Link>
-              </div>
-            </div>
-          </div>
-
-          <div id='cardDiv_Body'>
-            <div id='cardDivImg_Body'>
-              <img loading='lazy' src="https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2FourServices%2FtravelExpenses.webp?alt=media&token=9da5600c-9af2-4db8-a42c-c40982f37125" alt="error" />
-            </div>
-            <div id='cardDivContent_Body'>
-              <div>
-                <ul style={{display:'grid', gap:'5px'}}>
-                  <li>Create separate profiles for personal & group travel. Each Profile have their own expense list</li>
-                  <li>Add, categorize, and track expenses in real time</li>
-                  <li> Split costs fairly with friends & settle balances easily</li>
-                  <li>Visual analysis to track financial habits</li>
-                </ul>
-              </div>
-              <div>
-                <p>Click to start tracking your travel expenses now!</p>
-              </div>
-              <div style={{textAlign:'center', marginBottom:'1.5rem', marginTop:'0.5rem'}}>
-                <Link to="/travelExpenses" id='cardBtn_Body'>Travel Expenses</Link>
-              </div>
-            </div>
-          </div>
-
-          <div id='cardDiv_Body'>
-            <div id='cardDivImg_Body'>
-              <img loading='lazy' src="https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2FourServices%2FrecurringExpenses.webp?alt=media&token=0e7b58ba-0585-4bbe-a32f-02203d7e7352" alt="error" />
-            </div>
-            <div id='cardDivContent_Body'>
-              <div>
-                <ul style={{display:'grid', gap:'5px'}}>
-                  <li>Create & track recurring expense profiles. Each Profile have their own expense list</li>
-                  <li>Analyze spending patterns for better budgeting</li>
-                  <li>Easily create, manage and delete expenses in expense list</li>
-                  <li>Visual analysis to track financial habits</li>
-                </ul>
-              </div>
-              <div>
-                <p>Click to manage your recurring expenses now!</p>
-              </div>
-              <div style={{textAlign:'center', marginBottom:'1.5rem', marginTop:'0.5rem'}}>
-                <Link to="/recurringExpenses" id='cardBtn_Body'>Recurring Expenses</Link>
-              </div>
-            </div>
-          </div>
-
-          <div id='cardDiv_Body'>
-            <div id='cardDivImg_Body'>
-              <img loading='lazy' src="https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2FourServices%2FsavingGoals.webp?alt=media&token=0810db9e-f5e9-4f09-8f57-28b8cc4efe79" alt="error" />
-            </div>
-            <div id='cardDivContent_Body'>
-              <div>
-                <ul style={{display:'grid', gap:'5px'}}>
-                  <li>Create & track multiple saving goals.</li>
-                  <li>Monitor progress with real-time updates</li>
-                  <li>Easily manage adjustments by depositing or withdrawing</li>
-                </ul>
-              </div>
-              <div>
-                <p>Click to start saving smarter today!</p>
-              </div>
-              <div style={{textAlign:'center', marginBottom:'1.5rem', marginTop:'0.5rem'}}>
-                <Link to="/savingGoals" id='cardBtn_Body'>Saving Goals</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <MainServices/>
 
         {/* {friendRequests && friendRequests.length > 0 || moneyRequests && moneyRequests.length>0 &&  */}
         <div style={{marginTop:'30px', padding:'20px'}}>
