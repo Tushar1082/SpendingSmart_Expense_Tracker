@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import './body.css';
@@ -7,96 +7,7 @@ import BodyNavbar from './bodyNavbar';
 import Footer from '../Footer/footer';
 import Loader from '../../Loader/loader';
 
-function SliderComp(){
-  const [animate, setAnimate] = useState(true);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  
-  const slider = [
-    {
-      source: "https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2Fslider%2FtrackExpensesEffortlessly.webp?alt=media&token=9eed43b0-5cb5-4f96-92a5-ef3d466d6635"
-      ,
-      // source:'./slider/trackExpensesEffortlessly.jpg',
-      title:'Track Your Expenses Effortlessly',
-      description:'Monitor daily, monthly, and yearly expenses at a glance. Stay on top of your spending like never before!',
-      link: './trackMyExpenses'
-    },
-    {
-      // source:'./slider/savingGoals.jpg',
-      source: 'https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2Fslider%2FsavingGoals.webp?alt=media&token=f2a2867d-f652-475b-bd56-77a34f81487b'
-      ,title:'Set and Achieve Saving Goals',
-      description:'Plan your savings and watch your progress grow. Make your financial dreams a reality.',
-      link: './savingGoals'
-    },
-    {
-      // source:'./slider/analyze.jpg',
-      source: 'https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2Fslider%2Fanalyze.webp?alt=media&token=8f5d544e-b2d3-4c38-a96f-316c364ffa7a',
-      title:'Analyze and Optimize Spending',
-      description:'Gain insights into your spending patterns and make smarter financial decisions.',
-    },
-    {
-      // source:'./slider/collaborateWithFriends.jpg',
-      source:'https://firebasestorage.googleapis.com/v0/b/ecommercewebapp-40db9.appspot.com/o/SpendingSmart%2FsiteOwnData%2Fslider%2FcollaborateWithFriends.webp?alt=media&token=8e72118f-8eef-4ae5-97d0-0cb0a1a9a9df',
-      title:'Collaborate with Friends',
-      description:'Easily track group expenses and share costs with your friends. Simplify financial planning together.',
-      link: './groupExpenses'
-    }
-  ];
-  const currentSlide = slider[currentIndex];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setAnimate(false)
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % slider.length); // Cycles back to the first slide
-      setTimeout(()=>setAnimate(true),100);
-    }, 3000);
-
-    // Clear interval on component unmount
-    return () => clearInterval(interval);
-  }, []);
-
-  return(
-    <>
-    <div 
-      id='sliderDiv'
-      className={animate ? 'animate notRespView' : ''}
-    >
-      <div>
-        <img 
-          src={currentSlide.source} 
-          alt="error" 
-          fetchPriority={currentSlide.title==='Track Your Expenses Effortlessly'?'high':'low'}
-          loading='lazy'
-        />
-      </div>
-      <div>
-        <h2>{currentSlide.title}</h2>
-        <p>{currentSlide.description}</p>
-        {currentSlide.title!=="Analyze and Optimize Spending"?<Link to={currentSlide.link}><button>Begin</button></Link>:null}
-      </div>
-    </div>
-
-    <div 
-      id='sliderDiv'
-      className={animate ? 'animate responiveView' : ''}
-    >
-      <div>
-        <img 
-          src={currentSlide.source} 
-          alt="error" 
-          fetchPriority={currentSlide.title==='Track Your Expenses Effortlessly'?'high':'low'}
-          loading='lazy'
-        />
-      </div>
-      <div>
-        <h2>{currentSlide.title}</h2>
-        <p>{currentSlide.description}</p>
-        {currentSlide.title!=="Analyze and Optimize Spending"?<Link to={currentSlide.link}><button>Begin</button></Link>:null}
-      </div>
-    </div> 
-    </>
-  )
-}
-function MainServices(){
+function MainServices({ourSRef}){
   const services = [
     {
       id:1,
@@ -133,7 +44,7 @@ function MainServices(){
     }
   ]
   return(
-    <div id='servicesMain'>
+    <div id='servicesMain' ref = {ourSRef}>
     <div id='servicesHeading'>
       <h1>Our Services</h1>
     </div>
@@ -170,6 +81,7 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
   const user_id = localStorage.getItem('Spending_Smart_User_id');
   const [showLoading, setShowLoading] = useState(false);
   const dispatch = useDispatch();
+  const ourSRef = useRef();
   
   async function acceptRejReq(requester_id,requesterName,requesterProfileImg, work) {
     try {
@@ -200,6 +112,13 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
     }
   }
 
+  function handleBegin(){
+    const ourS = ourSRef.current;
+
+    if(ourS){
+      ourS.scrollIntoView({behavior:'smooth'});
+    }
+  }
 
   return (
     <div>
@@ -215,7 +134,7 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
             <p>Stay in control of your finances with our seamless expense tracker. Monitor your spending, set budgets, and achieve financial goals effortlessly. Smart insights, easy tracking, and a stress-free financial future—start today!</p>
           </div>
           <div>
-            <button>Let's Begin</button>
+            <button onClick={handleBegin}>Let's Begin</button>
           </div>
         </div>
 
@@ -227,7 +146,7 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
             <p>Take control of your finances—track expenses, set budgets, and reach your goals effortlessly.</p>
           </div>
           <div>
-            <button>Let's Begin</button>
+            <button onClick={handleBegin}>Let's Begin</button>
           </div>
         </div>
         <div id='heroSecImg'>
