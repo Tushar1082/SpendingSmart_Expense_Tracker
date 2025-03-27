@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import './body.css';
@@ -7,7 +7,9 @@ import BodyNavbar from './bodyNavbar';
 import Footer from '../Footer/footer';
 import Loader from '../../Loader/loader';
 
+
 function MainServices({ourSRef}){
+
   const services = [
     {
       id:1,
@@ -44,8 +46,8 @@ function MainServices({ourSRef}){
     }
   ]
   return(
-    <div id='servicesMain' ref = {ourSRef}>
-    <div id='servicesHeading'>
+    <div id='servicesMain'>
+    <div id='servicesHeading' ref={ourSRef}>
       <h1>Our Services</h1>
     </div>
     <div id='mainServices'>
@@ -82,7 +84,7 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
   const [showLoading, setShowLoading] = useState(false);
   const dispatch = useDispatch();
   const ourSRef = useRef();
-  
+
   async function acceptRejReq(requester_id,requesterName,requesterProfileImg, work) {
     try {
       setShowLoading(true);
@@ -111,14 +113,14 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
       setShowLoading(false);
     }
   }
-
   function handleBegin(){
     const ourS = ourSRef.current;
-
     if(ourS){
-      ourS.scrollIntoView({behavior:'smooth'});
+      ourS.scrollIntoView({ behavior: 'smooth' });
+
     }
   }
+  
 
   return (
     <div>
@@ -134,7 +136,7 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
             <p>Stay in control of your finances with our seamless expense tracker. Monitor your spending, set budgets, and achieve financial goals effortlessly. Smart insights, easy tracking, and a stress-free financial future—start today!</p>
           </div>
           <div>
-            <button onClick={handleBegin}>Let's Begin</button>
+            <button  onClick={handleBegin}>Let's Begin</button>
           </div>
         </div>
 
@@ -153,7 +155,7 @@ export default function Body({friendRequests,moneyRequests,LastTransactions,call
           <img src="heroSectionImg.webp" alt="error" loading='lazy' />
         </div>
       </div>
-      <MainServices/>
+      <MainServices ourSRef={ourSRef}/>
 
         {/* {friendRequests && friendRequests.length > 0 || moneyRequests && moneyRequests.length>0 &&  */}
         <div style={{marginTop:'30px', padding:'20px'}}>
