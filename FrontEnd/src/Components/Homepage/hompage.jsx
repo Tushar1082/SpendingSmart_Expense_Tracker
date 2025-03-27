@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useCallback,useMemo,lazy, Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar/navbar';
 import Body from './Body/body';
 import "./homepage.css";
-import SearchFriends from '../Search Friends/searchFriends';
-import MoneyRequests from '../Money Requests/moneyRequests';
-import Transactions from '../Transactions/transactions';
+const SearchFriends = lazy(()=> import('../Search Friends/searchFriends'));
+const MoneyRequests = lazy(()=> import('../Money Requests/moneyRequests'));
+const Transactions = lazy(()=>import('../Transactions/transactions'));
 import Reports from '../Reports/reports';
 import  Loader  from '../Loader/loader';
+
+// const user_id = localStorage.getItem('Spending_Smart_User_id');
+const user_id = "67b5603143fbb82dca78bf50";
+localStorage.setItem('Spending_Smart_User_id',"67b5603143fbb82dca78bf50");
 
 export default function Hompage() {
   const [currentComp, setCurrentComp] = useState('Home');
@@ -15,9 +19,6 @@ export default function Hompage() {
   const [showLoading, setShowLoading] = useState(false);
   const navigate = useNavigate();
 
-  // const user_id = localStorage.getItem('Spending_Smart_User_id');
-  const user_id = "67b5603143fbb82dca78bf50";
-  localStorage.setItem('Spending_Smart_User_id',"67b5603143fbb82dca78bf50");
 
   function checkLogined(){
     if(!user_id){
@@ -35,7 +36,7 @@ export default function Hompage() {
     setSelected(index); // Set the clicked index as selected
   };
 
-  async function callUserData(){
+  const callUserData = useCallback(async ()=>{
     try {
         setShowLoading(true);
         const result = await fetch(`${import.meta.env.VITE_API_URL}/user?user_id=${user_id}`,{
@@ -61,11 +62,11 @@ export default function Hompage() {
     }finally{
       setShowLoading(false);
     }
-  }
+  },[user_id]);
 
-  function showComponent(){
+  const displayedComponent = useMemo(()=>{
     if(!userData)
-      return;
+      return null;
 
     switch(currentComp){
       case 'Home':
@@ -96,7 +97,8 @@ export default function Hompage() {
         alert('Error in homepage');
         return 
     }
-  }
+  },[currentComp, userData, callUserData]);
+
   useEffect(()=>{
     // func();
     const bool = checkLogined();
@@ -104,8 +106,10 @@ export default function Hompage() {
       callUserData();
     }
   },[])
+
   return (
     <div id="main_homepage">
+    <Suspense fallback={<Loader/>}>
       <Navbar 
         setCurrentComp={setCurrentComp} 
         userImg={userData?.profile_image} 
@@ -114,9 +118,10 @@ export default function Hompage() {
         selected={selected} 
       />
 
-      {
-        showComponent(currentComp)
-      }
+
+        {displayedComponent}
+      </Suspense>
+      
       {/* <Loader/> */}
       {showLoading?<Loader/>:null}
     </div>
