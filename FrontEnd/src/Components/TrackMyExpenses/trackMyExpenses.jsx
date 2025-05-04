@@ -110,8 +110,8 @@ export default function TrackMyExpenses() {
   const [subCategoryAna, setSubCategoryAna] = useState([]);
   const dispatch = useDispatch();
   const {showHideProfBar} = useSelector((state)=>state.user);
-   
-function handleBarPieChart(data, budget) {
+
+  function handleBarPieChart(data, budget) {
     if (selectExpProf.expenses.length === 0) return;
 
     // Handle Bar Chart for Categories
@@ -139,6 +139,15 @@ function handleBarPieChart(data, budget) {
     setCategoryAna(categoryArr);
     setSubCategoryAna(subCategoryArr);
 
+    const budgetValue = parseFloat(budget.$numberDecimal || 0);
+    const yAxisOptions = {
+    beginAtZero: true,
+    max: budgetValue,
+    ticks: {
+        stepSize: Math.ceil(budgetValue / 5),
+    },
+    };
+
     const categoryBarChart = {
       labels: categoryArr.map(exp => exp.name),
       datasets: [
@@ -151,7 +160,9 @@ function handleBarPieChart(data, budget) {
         },
       ],
     };
-    setBarChartData(categoryBarChart);
+    // setBarChartData(categoryBarChart);
+    setBarChartData({ data: categoryBarChart, options: { responsive: true, scales: { y: yAxisOptions } } });
+
   
     // Handle Bar Chart for Subcategories (if applicable)
     let subcategoryBarChart;
@@ -168,8 +179,9 @@ function handleBarPieChart(data, budget) {
       ],
     };
 
-    setSubBarChartData(subcategoryBarChart);
-  
+    // setSubBarChartData(subcategoryBarChart);
+    setSubBarChartData({ data: subcategoryBarChart, options: { responsive: true, scales: { y: yAxisOptions } } });
+
     // Handle Pie Chart
     const totalSpent = data.reduce((acc, exp) => acc + parseFloat(exp.amount.$numberDecimal), 0);
     const remainingBudget = parseFloat(budget.$numberDecimal || 0) - totalSpent;
@@ -213,6 +225,7 @@ function handleBarPieChart(data, budget) {
   
     setPieChartData({ data: pieChart, options: pieChartOptions });
 }
+  
   function calTotalCurAm(){
     if(!selectExpProf)
         return;
@@ -786,14 +799,31 @@ function handleBarPieChart(data, budget) {
                     <div id='mainVisualCharts'>
                         {barChartData && <div id='barchartData'>
                         <Bar 
-                            data={barChartData} 
-                            options={{ responsive: true, plugins: { legend: { position: "top" }, title: { display: true, text: "Expenses by Category" } } }} 
+                            data={barChartData.data} 
+                            options={{
+                                ...barChartData.options,
+                                responsive: true, 
+                                plugins: 
+                                    { legend: 
+                                        { position: "top" }, 
+                                        title: 
+                                            { display: true, text: "Expenses by Category" } 
+                                    } 
+                                }} 
                         />
                         </div>}
                         {subBarChartData && <div id='subBarchartData'>
                         <Bar 
-                            data={subBarChartData} 
-                            options={{ responsive: true, plugins: { legend: { position: "top" }, title: { display: true, text: "Expenses by Subcategory" } } }} 
+                            data={subBarChartData.data} 
+                            options={{ 
+                                ...subBarChartData.options,
+                                plugins: 
+                                    { legend: 
+                                        { position: "top" }, 
+                                        title: 
+                                            { display: true, text: "Expenses by Subcategory" } 
+                                    } 
+                            }} 
                         />
                         </div>}
                         {pieChartData && (
@@ -806,7 +836,6 @@ function handleBarPieChart(data, budget) {
                         </div>
                         )}
                     </div>
-                </div>}
                 {/* Below code is used to add new expenses */}
                 {showAddExpDialog && <div id='main_addExpense'>
                     <div id='closeBtnDiv'>
