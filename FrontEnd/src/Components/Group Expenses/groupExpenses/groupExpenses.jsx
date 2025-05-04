@@ -1057,15 +1057,40 @@ export default function GroupExpenses({
                     {/* Show Details of Analysis in the form of Bar chart and Pie chart */}
                     <div id='mainVisualCharts'>
                         {barChartData && <div id='barchartData'>
-                        <Bar 
+{/*                         <Bar 
                             data={barChartData} 
                             options={{ responsive: true, plugins: { legend: { position: "top" }, title: { display: true, text: "Expenses by Category" } } }} 
-                        />
+                        /> */}
+                        <Bar 
+                            data={barChartData.data} 
+                            options={{
+                                ...barChartData.options,
+                                responsive: true, 
+                                plugins: 
+                                    { legend: 
+                                        { position: "top" }, 
+                                        title: 
+                                            { display: true, text: "Expenses by Category" } 
+                                    } 
+                                }} 
+                        /> 
                         </div>}
                         {subBarChartData && <div id='subBarchartData'>
-                        <Bar 
+{/*                         <Bar 
                             data={subBarChartData} 
                             options={{ responsive: true, plugins: { legend: { position: "top" }, title: { display: true, text: "Expenses by Subcategory" } } }} 
+                        /> */}
+                        <Bar 
+                            data={subBarChartData.data} 
+                            options={{ 
+                                ...subBarChartData.options,
+                                plugins: 
+                                    { legend: 
+                                        { position: "top" }, 
+                                        title: 
+                                            { display: true, text: "Expenses by Subcategory" } 
+                                    } 
+                            }} 
                         />
                         </div>}
                         {pieChartData && (
