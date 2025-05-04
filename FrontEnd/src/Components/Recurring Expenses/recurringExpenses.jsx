@@ -146,7 +146,16 @@ export default function RecurringExpenses() {
         
         setCategoryAna(categoryArr);
         setSubCategoryAna(subCategoryArr);
-    
+        
+        const budgetValue = parseFloat(budget.$numberDecimal || 0);
+        const yAxisOptions = {
+        beginAtZero: true,
+        max: budgetValue,
+        ticks: {
+            stepSize: Math.ceil(budgetValue / 5),
+            },
+        };
+        
         const categoryBarChart = {
           labels: categoryArr.map(exp => exp.name),
           datasets: [
@@ -159,8 +168,9 @@ export default function RecurringExpenses() {
             },
           ],
         };
-        setBarChartData(categoryBarChart);
-      
+        // setBarChartData(categoryBarChart);
+        setBarChartData({ data: categoryBarChart, options: { responsive: true, scales: { y: yAxisOptions } } });
+
         // Handle Bar Chart for Subcategories (if applicable)
         let subcategoryBarChart;
         subcategoryBarChart = {
@@ -176,8 +186,9 @@ export default function RecurringExpenses() {
           ],
         };
     
-        setSubBarChartData(subcategoryBarChart);
-      
+        // setSubBarChartData(subcategoryBarChart);
+              setSubBarChartData({ data: subcategoryBarChart, options: { responsive: true, scales: { y: yAxisOptions } } });
+
         // Handle Pie Chart
         const totalSpent = data.reduce((acc, exp) => acc + parseFloat(exp.amount.$numberDecimal), 0);
         const remainingBudget = parseFloat(budget.$numberDecimal || 0) - totalSpent;
@@ -831,15 +842,40 @@ export default function RecurringExpenses() {
                     {/* Show Details of Analysis in the form of Bar chart and Pie chart */}
                     <div id='mainVisualCharts'>
                         {barChartData && <div id='barchartData'>
-                        <Bar 
+{/*                         <Bar 
                             data={barChartData} 
                             options={{ responsive: true, plugins: { legend: { position: "top" }, title: { display: true, text: "Expenses by Category" } } }} 
-                        />
+                        /> */}
+                        <Bar 
+                            data={barChartData.data} 
+                            options={{
+                                ...barChartData.options,
+                                responsive: true, 
+                                plugins: 
+                                    { legend: 
+                                        { position: "top" }, 
+                                        title: 
+                                            { display: true, text: "Expenses by Category" } 
+                                    } 
+                                }} 
+                        /> 
                         </div>}
                         {subBarChartData && <div id='subBarchartData'>
-                        <Bar 
+{/*                         <Bar 
                             data={subBarChartData} 
                             options={{ responsive: true, plugins: { legend: { position: "top" }, title: { display: true, text: "Expenses by Subcategory" } } }} 
+                        /> */}
+                        <Bar 
+                            data={subBarChartData.data} 
+                            options={{ 
+                                ...subBarChartData.options,
+                                plugins: 
+                                    { legend: 
+                                        { position: "top" }, 
+                                        title: 
+                                            { display: true, text: "Expenses by Subcategory" } 
+                                    } 
+                            }} 
                         />
                         </div>}
                         {pieChartData && (
