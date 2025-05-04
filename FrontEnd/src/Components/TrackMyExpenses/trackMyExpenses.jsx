@@ -796,7 +796,7 @@ export default function TrackMyExpenses() {
                         </div>
                     </div>
                     {/* Show Details of Analysis in the form of Bar chart and Pie chart */}
-                    <div id='mainVisualCharts'>
+                                      <div id='mainVisualCharts'>
                         {barChartData && <div id='barchartData'>
                         <Bar 
                             data={barChartData.data} 
@@ -835,7 +835,8 @@ export default function TrackMyExpenses() {
                             />
                         </div>
                         )}
-                    </div>
+                    </div>  
+                </div>}
                 {/* Below code is used to add new expenses */}
                 {showAddExpDialog && <div id='main_addExpense'>
                     <div id='closeBtnDiv'>
