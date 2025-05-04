@@ -127,7 +127,15 @@ export default function GroupExpenses({
         
         setCategoryAna(categoryArr);
         setSubCategoryAna(subCategoryArr);
-
+        
+        const budgetValue = parseFloat(budget.$numberDecimal || 0);
+        const yAxisOptions = {
+        beginAtZero: true,
+        max: budgetValue,
+        ticks: {
+            stepSize: Math.ceil(budgetValue / 5),
+            },
+        };
         const categoryBarChart = {
           labels: categoryArr.map(exp => exp.name),
           datasets: [
@@ -140,8 +148,9 @@ export default function GroupExpenses({
             },
           ],
         };
-        setBarChartData(categoryBarChart);
-      
+        // setBarChartData(categoryBarChart);
+        setBarChartData({ data: categoryBarChart, options: { responsive: true, scales: { y: yAxisOptions } } });
+
         // Handle Bar Chart for Subcategories (if applicable)
         let subcategoryBarChart;
         subcategoryBarChart = {
@@ -157,8 +166,9 @@ export default function GroupExpenses({
           ],
         };
 
-        setSubBarChartData(subcategoryBarChart);
-      
+        // setSubBarChartData(subcategoryBarChart);
+              setSubBarChartData({ data: subcategoryBarChart, options: { responsive: true, scales: { y: yAxisOptions } } });
+
         // Handle Pie Chart
         const totalSpent = data.reduce((acc, exp) => acc + parseFloat( exp.amount.$numberDecimal ), 0);
         const remainingBudget = parseFloat( (budget.$numberDecimal || 0) ) - totalSpent;
