@@ -108,8 +108,8 @@ app.post('/user', async (req, res) => {
         };
 
         // Validate required fields
-        const { profileImg, name, age, emailID, password } = req.body;
-        if (!name || !age || !emailID || !password) {
+        const { profileImg, name, age, dob, emailID, password } = req.body;
+        if (!name || !emailID || !password) {
             return res.status(400).json({ error: "All fields are required" });
         }
 
@@ -120,6 +120,7 @@ app.post('/user', async (req, res) => {
             profile_image: profileImg,
             name: name,
             age: Number(age),
+            dob: new Date(dob),
             email: emailID,
             password: hashedPassword,
             friendList: [],
