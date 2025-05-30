@@ -21,8 +21,8 @@ export default function Hompage() {
 
 
   function checkLogined(){
-    console.log("here");
-    console.log(user_id);
+    alert("from homepage");
+    alert("from homepage "+ user_id);
     if(!user_id){
       navigate('/signin');
     }
