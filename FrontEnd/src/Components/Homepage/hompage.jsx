@@ -21,8 +21,6 @@ export default function Hompage() {
 
 
   function checkLogined(){
-    alert("from homepage");
-    alert("from homepage "+ user_id);
     if(!user_id){
       navigate('/signin');
     }
