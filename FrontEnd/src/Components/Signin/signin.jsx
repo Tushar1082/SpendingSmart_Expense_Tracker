@@ -123,8 +123,10 @@ export default function Signin() {
     }
   }
   useEffect(() => {
+    alert("here1");
     // This will run when 'data.profileImg' is updated
     if (data.profileImg && correctPass) {
+    alert("here2");
       setTimeout(() => {
         navigate("/");
       }, 2000);
