@@ -9,9 +9,9 @@ const Transactions = lazy(()=>import('../Transactions/transactions'));
 import Reports from '../Reports/reports';
 import  Loader  from '../Loader/loader';
 
-// const user_id = localStorage.getItem('Spending_Smart_User_id');
-const user_id = "67b5603143fbb82dca78bf50";
-localStorage.setItem('Spending_Smart_User_id',"67b5603143fbb82dca78bf50");
+const user_id = localStorage.getItem('Spending_Smart_User_id');
+// const user_id = "67b5603143fbb82dca78bf50";
+// localStorage.setItem('Spending_Smart_User_id',"67b5603143fbb82dca78bf50");
 
 export default function Hompage() {
   const [currentComp, setCurrentComp] = useState('Home');
